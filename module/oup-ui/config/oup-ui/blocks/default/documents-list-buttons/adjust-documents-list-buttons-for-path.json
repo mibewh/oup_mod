@@ -1,6 +1,6 @@
 {
     "evaluator": "document-has-path",
-    "condition": "/Journals/Journal_2",
+    "condition": "/All_Journals/---Journals",
     "config": {
         "documents-list-buttons": [{
             "key": "new",
