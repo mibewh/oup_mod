@@ -1,0 +1,10 @@
+{
+  "evaluator": "current-user-has-name",
+  "condition": "test",
+  "config": {
+    "document-actions": [{
+      "key": "change-qname",
+      "remove": true
+    }]
+  }
+}

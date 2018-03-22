@@ -1,0 +1,31 @@
+{
+    "evaluator": "document-has-path",
+    "condition": "/Journals/Journal_2",
+    "config": {
+        "documents-list-buttons": [{
+            "key": "new",
+            "buttons": [{
+                "key": "new_text_file",
+                "remove": true
+            }, {
+                "key": "new_document",
+                "title": "Create Page Template"
+            }]
+        }, {
+            "key": "view_rules",
+            "remove": true
+        }, {
+            "key": "view_details",
+            "remove": true
+        }, {
+            "key": "sort-direction-selector",
+            "remove": true
+        }, {
+            "key": "sort-selector",
+            "remove": true
+        }, {
+            "key": "multi-documents-action-selector",
+            "remove": true
+        }]
+    }
+}

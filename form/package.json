@@ -1,0 +1,11 @@
+{
+  "name": "oup-ui-sample-form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "cl",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

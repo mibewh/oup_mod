@@ -1,0 +1,10 @@
+{
+    "config": {
+        "document-actions": [{
+            "key": "change-qname",
+            "rejectAuthority": [
+                "example1"
+            ]
+        }]
+    }
+}

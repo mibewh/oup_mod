@@ -1,0 +1,43 @@
+<div class="form">
+    <form action="/action_page.php">
+        First name: <input type="text" name="firstname" value="Mickey">
+        <br> 
+        Last name: <input type="text" name="lastname" value="Mouse">
+        <br>
+        <input type="radio" name="gender" value="male" checked> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" value="other"> Other
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<button onclick="tellParent('cancel')">Cancel</button>
+<button onclick="tellParent('done')">Done</button>
+<button onclick="tellParent('reload')">Reload</button>
+<button onclick="tellParentGoto('redirect', 'https://github.com')">Redirect</button>
+<button onclick="tellParent('requestInfo')">Request Info</button>
+
+<script>
+    function tellParent(type) {
+        var event = {};
+        event.type = type;
+
+        window.top.postMessage(event, "*");
+    }
+
+    function tellParentGoto(type, url) {
+        var event = {};
+        event.type = type;
+        event.url = url;
+
+        window.top.postMessage(event, "*");
+    }
+
+    window.onmessage = function (event) {
+        var e = event.data;
+        if (e.type == "info") {
+            console.log(JSON.stringify(e));
+        }
+    };
+
+</script>

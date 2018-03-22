@@ -1,0 +1,23 @@
+{
+  "evaluator": "and",
+  "condition": [{
+    "evaluator": "context-document"
+  }, {
+    "evaluator": "current-user-has-name",
+    "condition": "test"
+  }],
+  "config": {
+    "document-subcontext": {
+      "items": [{
+        "key": "document",
+        "title": "Document",
+        "header": true,
+        "order": 1000,
+        "items": [{
+          "key": "document/actions",
+          "remove": true
+        }]
+      }]
+    }
+  }
+}

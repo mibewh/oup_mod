@@ -1,0 +1,10 @@
+{
+  "evaluator": "context-document-has-type",
+  "condition": "n:node",
+  "config": {
+    "document-actions": [{
+      "key": "delete-document",
+      "remove": true
+    }]
+  }
+}

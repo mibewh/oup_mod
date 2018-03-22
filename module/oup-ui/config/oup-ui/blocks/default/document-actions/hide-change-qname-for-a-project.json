@@ -1,0 +1,10 @@
+{
+  "evaluator": "project-has-title",
+  "condition": "Test",
+  "config": {
+    "document-actions": [{
+      "key": "change-qname",
+      "remove": true
+    }]
+  }
+}
