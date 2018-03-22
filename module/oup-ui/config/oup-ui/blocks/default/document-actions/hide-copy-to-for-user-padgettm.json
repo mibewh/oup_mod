@@ -1,6 +1,6 @@
 {
   "evaluator": "current-user-has-name",
-  "condition": "padgettm",
+  "condition": "mickpaddgett",
   "config": {
     "document-actions": [{
       "key": "copy-to",
