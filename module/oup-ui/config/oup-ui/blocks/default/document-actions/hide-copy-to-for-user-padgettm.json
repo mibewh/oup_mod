@@ -1,0 +1,10 @@
+{
+  "evaluator": "current-user-has-name",
+  "condition": "padgettm",
+  "config": {
+    "document-actions": [{
+      "key": "copy-to",
+      "remove": true
+    }]
+  }
+}
