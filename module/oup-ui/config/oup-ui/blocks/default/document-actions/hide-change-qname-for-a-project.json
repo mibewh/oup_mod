@@ -1,6 +1,6 @@
 {
   "evaluator": "project-has-title",
-  "condition": "Global Academic Platform (Authoring) ",
+  "condition": "Global Academic Platform (Authoring)",
   "config": {
     "document-actions": [{
       "key": "change-qname",
