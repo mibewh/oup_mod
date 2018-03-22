@@ -4,7 +4,7 @@
     "evaluator": "context-document"
   }, {
     "evaluator": "project-has-title",
-    "condition": "Test"
+    "condition": "Global Academic Platform (Authoring)"
   }],
   "config": {
     "document-subcontext": {
