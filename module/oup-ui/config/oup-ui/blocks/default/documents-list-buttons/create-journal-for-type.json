@@ -1,6 +1,6 @@
 {
     "evaluator": "document-has-type",
-    "condition": "my:journalfolder",
+    "condition": "type:secondarypagesfolder0",
     "config": {
         "documents-list-buttons": [{
             "key": "new",
