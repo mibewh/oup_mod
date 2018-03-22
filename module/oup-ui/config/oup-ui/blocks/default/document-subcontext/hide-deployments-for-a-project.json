@@ -4,7 +4,7 @@
     "evaluator": "context-document"
   }, {
     "evaluator": "project-has-title",
-    "condition": "Global Academic Platform (Authoring)"
+    "condition": "Test"
   }],
   "config": {
     "document-subcontext": {
@@ -14,7 +14,7 @@
         "header": true,
         "order": 1000,
         "items": [{
-          "key": "document/deployments",
+          "key": "document/actions",
           "remove": true
         }]
       }]

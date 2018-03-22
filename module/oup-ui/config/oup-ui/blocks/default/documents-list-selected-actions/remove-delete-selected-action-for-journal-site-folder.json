@@ -1,0 +1,10 @@
+{
+    "evaluator": "document-has-type",
+    "condition": "type:journalsitefolder0",
+    "config": {
+        "documents-list-selected-actions": [{
+            "action": "delete_documents",
+            "remove": true
+        }]
+    }
+}
