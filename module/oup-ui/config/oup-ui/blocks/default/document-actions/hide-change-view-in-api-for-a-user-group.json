@@ -1,0 +1,10 @@
+{
+    "config": {
+        "document-actions": [{
+            "key": "view-in-api",
+            "rejectAuthority": [
+                "OUP Editor"
+            ]
+        }]
+    }
+}
