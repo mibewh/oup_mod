@@ -9,7 +9,7 @@
                 "title": "Test Create Journal",
                 "iconClass": "fa fa-plus",
                 "align": "left",
-                "action": "create-journal",
+                "action": "create-secondaryPage",
                 "allowPermission": [
                     "create_subobjects"
                 ]
