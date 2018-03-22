@@ -1,0 +1,22 @@
+{
+    "evaluator": "document-has-type",
+    "condition": "type:documentlibraryfolder0",
+    "config": {
+        "documents-list-buttons": [{
+            "key": "new",
+            "buttons": [{
+                "key": "new_text_file",
+                "remove": true
+            }, {
+                "key": "new_document",
+                "title": "Create Page Template"
+            }]
+        }, {
+            "key": "view_rules",
+            "remove": true
+        }, {
+            "key": "view_details",
+            "remove": true            
+        }]
+    }
+}
