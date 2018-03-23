@@ -4,13 +4,10 @@
     "document-subcontext": {
       "items": [{
         "key": "document",
-        "title": "Document",
-        "header": true,
-        "order": 1000,
         "items": [{
           "key": "document/json",
           "rejectAuthority": [
-            "project-editors-team"
+            "oup-editors"
           ]
         }]
       }]

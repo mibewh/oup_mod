@@ -5,7 +5,7 @@
         "documents-list-buttons": [{
             "key": "new",
             "buttons": [{
-                "key": "new_text_file",
+                "key": "new_text_document",
                 "remove": true
             }, {
                 "key": "new_document",

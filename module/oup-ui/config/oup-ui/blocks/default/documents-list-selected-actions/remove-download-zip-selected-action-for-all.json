@@ -1,7 +1,7 @@
 {
     "config": {
         "documents-list-selected-actions": [{
-            "action": "action-download",
+            "action": "download",
             "remove": true
         }]
     }
