@@ -1,6 +1,6 @@
 {
     "evaluator": "document-has-type",
-    "condition": "type:secondarypagesfolder0",
+    "condition": "type:secondarypage0",
     "config": {
         "documents-list-selected-actions": [{
             "action": "edit-secondaryPage",
