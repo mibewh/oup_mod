@@ -3,7 +3,7 @@
         "document-actions": [{
             "key": "view-in-api",
             "rejectAuthority": [
-                "project-editors-team"
+                "oup-editors"
             ]
         }]
     }
