@@ -14,7 +14,7 @@
         "header": true,
         "order": 1000,
         "items": [{
-          "key": "document/deployments",
+          "key": "document/comments",
           "remove": true
         }]
       }]
