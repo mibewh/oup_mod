@@ -4,8 +4,9 @@ define(function(require) {
     require("./actions/create-journal/create-secondaryPage.js");
     
     // action: "edit-journal"
+
     require("./actions/create-journal/edit-secondaryPage.js");
-    
+
     // action: "open-oup"
     //require("./actions/open-oup/open-oup.js");
 
