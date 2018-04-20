@@ -34,7 +34,13 @@
         {
             "key": "view-in-admin-console",
             "remove": true
+        },
+        {
+            "key": "upload-attachment",
+            "remove": true
         }
+
+        
     ]
     }
   }
