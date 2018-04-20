@@ -38,9 +38,13 @@
         {
             "key": "upload-attachment",
             "remove": true
+        },
+        {
+            "key": "touch-document",
+            "remove": true
         }
 
-        
+
     ]
     }
   }
