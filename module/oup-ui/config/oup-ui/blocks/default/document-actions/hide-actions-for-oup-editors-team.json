@@ -1,0 +1,40 @@
+{
+    "evaluator": "current-user-has-team",
+    "condition": "OUP Content Editors",
+    "config": {
+      "document-actions": [
+        {
+            "key": "add-feature",
+            "remove": true
+        },
+        {
+            "key": "change-qname",
+            "remove": true
+        }
+        {
+            "key": "change-type",
+            "remove": true
+        },
+        {
+            "key": "copy-to",
+            "remove": true
+        },
+        {
+            "key": "disable-inherit-propagated-authorities",
+            "remove": true
+        },
+        {
+            "key": "enable-inherit-propagated-authorities",
+            "remove": true
+        },
+        {
+            "key": "view-in-api",
+            "remove": true
+        },
+        {
+            "key": "view-in-admin-console",
+            "remove": true
+        }
+    ]
+    }
+  }

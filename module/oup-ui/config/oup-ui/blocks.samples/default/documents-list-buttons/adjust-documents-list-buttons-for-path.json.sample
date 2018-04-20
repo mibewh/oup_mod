@@ -1,11 +1,11 @@
 {
     "evaluator": "document-has-path",
-    "condition": "/All_Journals/---Journals",
+    "condition": "/Journals/Journal_2",
     "config": {
         "documents-list-buttons": [{
             "key": "new",
             "buttons": [{
-                "key": "new_text_document",
+                "key": "new_text_file",
                 "remove": true
             }, {
                 "key": "new_document",
