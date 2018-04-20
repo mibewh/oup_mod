@@ -1,0 +1,12 @@
+{
+    "evaluator": "current-user-has-team",
+    "condition": "oup-editors",
+    "config": {
+        "document-actions": [{
+            "key": "edit-secondary-page",
+            "title": "Edit Page Overlay",
+            "iconClass": "fa fa-book",
+            "action": "edit-secondaryPage"
+        }]
+    }
+}
