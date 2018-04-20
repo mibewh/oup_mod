@@ -8,7 +8,40 @@
                 "items": [{
                     "key": "document/actions",
                     "remove": true
-                }]
+                },
+                {
+                    "key": "document/associations",
+                    "remove": true
+                },
+                {
+                    "key": "document/attachments",
+                    "remove": true
+                },
+                {
+                    "key": "document/authorities",
+                    "remove": true
+                },
+                {
+                    "key": "document/features",
+                    "remove": true
+                },
+                {
+                    "key": "document/graph",
+                    "remove": true
+                },
+                {
+                    "key": "document/json",
+                    "remove": true
+                },
+                {
+                    "key": "document/rules",
+                    "remove": true
+                },
+                {
+                    "key": "document/tags",
+                    "remove": true
+                }
+            ]
             }]
         }
     }

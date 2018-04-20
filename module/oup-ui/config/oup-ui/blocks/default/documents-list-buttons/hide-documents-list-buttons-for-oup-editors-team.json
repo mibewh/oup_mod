@@ -1,6 +1,6 @@
 {
-    "evaluator": "document-has-path",
-    "condition": "/All_Journals/---Journals",
+    "evaluator": "current-user-has-team",
+    "condition": "OUP Content Editors",
     "config": {
         "documents-list-buttons": [{
             "key": "new",
