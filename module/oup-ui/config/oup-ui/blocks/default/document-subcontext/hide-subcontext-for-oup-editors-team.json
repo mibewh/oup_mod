@@ -1,0 +1,15 @@
+{
+    "evaluator": "current-user-has-team",
+    "condition": "OUP Content Editors",
+    "config": {
+        "document-subcontext": {
+            "items": [{
+                "key": "document",
+                "items": [{
+                    "key": "document/actions",
+                    "remove": true
+                }]
+            }]
+        }
+    }
+}
