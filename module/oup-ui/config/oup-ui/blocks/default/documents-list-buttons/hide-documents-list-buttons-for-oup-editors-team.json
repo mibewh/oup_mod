@@ -1,6 +1,6 @@
 {
     "evaluator": "current-user-has-team",
-    "condition": "OUP Content Editors",
+    "condition": "oup-editors",
     "config": {
         "documents-list-buttons": [{
             "key": "new",
