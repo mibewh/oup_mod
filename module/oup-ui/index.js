@@ -1,10 +1,10 @@
 define(function(require) {
 
     // action: "create-journal"
-    require("./actions/create-journal/create-secondaryPage.js");
+    //require("./actions/create-journal/create-secondaryPage.js");
     
     // action: "edit-journal"
-    require("./actions/edit-journal/edit-secondaryPage.js");
+    //require("./actions/edit-journal/edit-secondaryPage.js");
     
     // action: "open-oup"
     //require("./actions/open-oup/open-oup.js");
