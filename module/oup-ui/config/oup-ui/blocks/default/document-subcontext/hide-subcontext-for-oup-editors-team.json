@@ -5,10 +5,7 @@
         "document-subcontext": {
             "items": [{
                 "key": "document",
-                "items": [{
-                    "key": "document/actions",
-                    "remove": true
-                },
+                "items": [
                 {
                     "key": "document/associations",
                     "remove": true
