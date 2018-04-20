@@ -1,6 +1,6 @@
 {
-    "evaluator": "current-user-has-team",
-    "condition": "OUP-Content-Editors",
+    "evaluator": "context-document-has-type",
+    "condition": "n:node",
     "config": {
       "document-actions": [
         {
