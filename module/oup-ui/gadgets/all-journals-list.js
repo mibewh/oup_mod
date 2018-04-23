@@ -84,7 +84,7 @@ define(function(require, exports, module) {
 
             var api = table.api();
             var last=null;
-            for (var i = 0; i <= model.rows.length; i++)
+            for (var i = 0; i < model.rows.length; i++)
             {
                 var family = model.rows[i].family;
                 if( last!== family){
