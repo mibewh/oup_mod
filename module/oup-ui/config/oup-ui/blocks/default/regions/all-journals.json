@@ -7,7 +7,7 @@
     },
     {
       "evaluator": "context-document-has-type",
-      "condition": "my:alljournals"
+      "condition": "type:alljournalsfolde0"
     }
   ],
   "config": {

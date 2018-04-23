@@ -11,7 +11,7 @@ define(function(require) {
     //require("./actions/open-oup/open-oup.js");
 
     // new pages
-    //require("./gadgets/all-journals-list.js");
+    require("./gadgets/all-journals-list.js");
     require("./gadgets/secondary-pages-list.js");
     
     // use this to globally control the position of helper text
