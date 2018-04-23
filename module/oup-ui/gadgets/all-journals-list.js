@@ -2,7 +2,7 @@
 define(function(require, exports, module) {
 
     var Ratchet = require("ratchet/web");
-    var DocumentsList = require("/oneteam-1523937005406/modules/app/gadgets/project/documents/documents-list.js");
+    var DocumentsList = require("app/gadgets/project/documents/documents-list.js");
     var OneTeam = require("oneteam");
 
     return Ratchet.GadgetRegistry.register("all-journals-list", DocumentsList.extend({
