@@ -75,7 +75,7 @@ define(function(require, exports, module) {
             {
                 query = {};
             }
-            query._type = "custom:journa0";
+            query._type = "type:secondarypage0";
 
             if(!pagination){
                 pagination = {};
