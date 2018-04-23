@@ -90,7 +90,7 @@ define(function(require, exports, module) {
                 if( last!== family){
                     var rows = api.rows( {page:'current'} ).nodes();
                     $(rows).eq( i ).before(
-                        '<tr class="group"><td colspan="5">'+ '<strong>' + family + '</strong>'+ '</td></tr>'
+                        '<tr class="group"><td colspan="5">'+ '<strong>TEST TEST' + family + '</strong>'+ '</td></tr>'
                     );
 
                     last = family;
