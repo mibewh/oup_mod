@@ -90,7 +90,7 @@ define(function(require, exports, module) {
                 if( last!== siteParent){
                     var rows = api.rows( {page:'current'} ).nodes();
                     $(rows).eq( i ).before(
-                        '<tr class="group"><td colspan="5">'+ '<strong>' + model.rows[i].title + '</strong>'+ '</td></tr>'
+                        '<tr class="group"><td colspan="5">'+ '<strong>' + siteParent + '</strong>'+ '</td></tr>'
                     );
 
                     last = siteParent;
