@@ -70,7 +70,7 @@ define(function(require, exports, module) {
 
             pagination.sort = {};
 
-            pagination.sort.family = 1;
+            pagination.sort.siteParent = 1;
 
             pagination.paths=true;
 
@@ -86,14 +86,14 @@ define(function(require, exports, module) {
             var last=null;
             for (var i = 0; i < model.rows.length; i++)
             {
-                var family = model.rows[i].family;
-                if( last!== family){
+                var siteParent = model.rows[i].siteParent;
+                if( last!== siteParent){
                     var rows = api.rows( {page:'current'} ).nodes();
                     $(rows).eq( i ).before(
-                        '<tr class="group"><td colspan="5">'+ '<strong>TEST TEST' + family + '</strong>'+ '</td></tr>'
+                        '<tr class="group"><td colspan="5">'+ '<strong>TEST TEST' + siteParent + '</strong>'+ '</td></tr>'
                     );
 
-                    last = family;
+                    last = siteParent;
                 }
             }
             return null;
