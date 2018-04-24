@@ -15,6 +15,10 @@ define(function (require, exports, module) {
             // the location of the "overlay app"
             config.src = "https://alb.primary.dev.gcms.the-infra.com/app/delete-page?id=0b81195bbc1450a34d1d";
 
+            // specify iframe width and height
+            config.iframeWidth = "640px";
+            config.iframeHeight = "512px";
+
             return config;
         }
 

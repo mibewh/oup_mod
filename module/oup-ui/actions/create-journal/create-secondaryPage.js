@@ -14,6 +14,10 @@ define(function (require, exports, module) {
             
             // the location of the "overlay app"
             config.src = "https://alb.primary.dev.gcms.the-infra.com/app/create-page?loc=%2FAll%20Journals%2FTest%20Journal%20Folder%2FSecondary%20Pages%2F";
+            
+            // specify iframe width and height
+            config.iframeWidth = "640px";
+            config.iframeHeight = "512px";
 
             return config;
         }

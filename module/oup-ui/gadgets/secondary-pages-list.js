@@ -63,8 +63,6 @@ define(function(require, exports, module) {
         doGitanaQuery: function(context, model, searchTerm, query, pagination, callback)
         {
             var self = this;
-            var branch = self.observable("branch").get();
-
 
             if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
             {
@@ -77,22 +75,18 @@ define(function(require, exports, module) {
             }
             query._type = "type:secondarypage0";
 
-            if(!pagination){
-                pagination = {};
-            }
-
-            if(!pagination.sort){
-                pagination.sort = {};
-            }
-
-            pagination.sort.family = 1;
-
             pagination.paths = true;
 
-            Chain(branch).queryNodes(query,pagination).then(function(){
+            var branch = self.observable("branch").get();
+            Chain(branch).queryNodes(query, pagination).then(function(){
                 callback(this);
             });
-
+            
+            // Do this if you want to only show journals inside of this folder            
+            // var folder = self.observable("document").get();            
+            // Chain(folder).queryRelatives(query, pagination).then(function() {
+            //     callback(this);
+            // });            
         },
 
         columnValue: function(row, item, model, context) {
@@ -100,32 +94,24 @@ define(function(require, exports, module) {
 
             var value = "";
 
-            if (item.key == "pageName") {
-
+            if (item.key === "pageName") {
                 var project = self.observable("project").get();
                 value += "<a href='#/projects/" + project._doc + "/documents/" + row._doc + "'>";
                 value += row.title;
                 value += "</a>";
                 return value;
-        }
+            }
 
-            if(item.key == "modifiedOn")
+            if (item.key === "modifiedOn") {
                 return row.getSystemMetadata().getModifiedOn().getTimestamp();
+            }                
 
-            if(item.key == "modifiedBy")
+            if (item.key === "modifiedBy") {
                 return row.getSystemMetadata().modified_by;
+            }                
 
-            if (item.key == "path")
-            {
-                value = "";
-                if (row._paths)
-                {
-                    var array = [];
-                    for (var k in row._paths) {
-                        array.push(row._paths[k]);
-                    }
-                    value = array.join("<br/>");
-                }
+            if (item.key === "path") {
+                return row.scURL;
             }
 
             return value;

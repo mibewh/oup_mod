@@ -9,7 +9,6 @@ define(function(require, exports, module) {
 
         setup: function()
         {
-
             this.get("/projects/{projectId}/documents/{documentId}/browse", this.index);
         },
 
@@ -46,8 +45,6 @@ define(function(require, exports, module) {
         doGitanaQuery: function(context, model, searchTerm, query, pagination, callback)
         {
             var self = this;
-            var branch = self.observable("branch").get();
-
 
             if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
             {
@@ -60,44 +57,44 @@ define(function(require, exports, module) {
             }
             query._type = "type:journalsitefolder0";
 
-            if(!pagination){
+            if (!pagination){
                 pagination = {};
             }
 
-            if(!pagination.sort){
+            if (!pagination.sort){
                 pagination.sort = {};
             }
 
             pagination.sort = {};
-
             pagination.sort.siteParent = 1;
+            // pagination.sort.title = 1; // sort by title secondarily
 
-            pagination.paths=true;
+            pagination.paths = true;
 
-            Chain(branch).queryNodes(query,pagination).then(function(){
+            var branch = self.observable("branch").get();
+            Chain(branch).queryNodes(query, pagination).then(function(){
                 callback(this);
             });
-
         },
 
         handleDrawCallback: function(el, model, table, settings) {
 
             var api = table.api();
-            var last=null;
+            var last = null;
             for (var i = 0; i < model.rows.length; i++)
             {
                 var siteParent = model.rows[i].siteParent;
-                if( last!== siteParent){
+                if( last !== siteParent) {
                     var rows = api.rows( {page:'current'} ).nodes();
-                    $(rows).eq( i ).before(
+                    $(rows).eq(i).before(
                         '<tr class="group"><td colspan="5">'+ '<strong>' + siteParent + '</strong>'+ '</td></tr>'
                     );
 
                     last = siteParent;
                 }
             }
+            
             return null;
-
         }
 
     }));
