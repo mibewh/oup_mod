@@ -1,8 +1,14 @@
 {
     "evaluator": "document-has-type",
     "condition": "type:documentlibraryfolder0",
-    "config": [{
-        "key": "new_document",
-        "title": "Create a Document"
-    }]
+    "config": {
+        "documents-list-buttons": [{
+            "key": "new",
+            "buttons": [{
+                "key": "new_document",
+                "title": "Create a Document"
+
+            }]
+        }]
+    }
 }

@@ -1,14 +1,19 @@
 {
     "evaluator": "document-has-type",
     "condition": "type:journalsitefolder0",
-    "config": [{
-        "key": "new_folder",
-        "remove": true
-    }, {
-        "key": "new_document",
-        "remove": true
-    }, {
-        "key": "upload",
-        "remove": true
-    }]
+    "config": {
+        "documents-list-buttons": [{
+            "key": "new",
+            "buttons": [{
+                "key": "new_folder",
+                "remove": true
+            }, {
+                "key": "new_document",
+                "remove": true
+            }, {
+                "key": "upload",
+                "remove": true
+            }]
+        }]
+    }
 }

@@ -1,8 +1,13 @@
 {
     "evaluator": "document-has-type",
     "condition": "type:containeritemsfolder0",
-    "config": [{
-        "key": "upload",
-        "remove": true
-    }]
+    "config": {
+        "documents-list-buttons": [{
+            "key": "new",
+            "buttons": [{
+                "key": "upload",
+                "remove": true
+            }]
+        }]
+    }
 }
