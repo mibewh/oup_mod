@@ -15,9 +15,6 @@
             "key": "view_rules",
             "remove": true
         }, {
-            "key": "view_details",
-            "remove": true
-        }, {
             "key": "sort-direction-selector",
             "remove": true
         }, {

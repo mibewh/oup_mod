@@ -1,0 +1,9 @@
+{
+    "evaluator": "document-has-type",
+    "condition": "type:containeritemsfolder0",
+    "config": [ {
+            "key": "upload",
+            "remove": true
+        }]
+    }
+}
