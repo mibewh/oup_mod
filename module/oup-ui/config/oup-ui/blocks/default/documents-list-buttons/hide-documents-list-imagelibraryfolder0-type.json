@@ -2,8 +2,7 @@
     "evaluator": "document-has-type",
     "condition": "type:imagelibraryfolder0",
     "config": [{
-            "key": "new_document",
-            "title": "Create an Image"
-        }]
-    }
+        "key": "new_document",
+        "title": "Create an Image"
+    }]
 }
