@@ -77,12 +77,11 @@ define(function(require, exports, module) {
 
             pagination.paths = true;
 
-            var branch = self.observable("branch").get();
-            Chain(branch).queryNodes(query, pagination).then(function(){
-                callback(this);
-            });
+//            var branch = self.observable("branch").get();
+//            Chain(branch).queryNodes(query, pagination).then(function(){
+//                callback(this);
+//            });
             
-            // Do this if you want to only show journals inside of this folder            
              var folder = self.observable("document").get();            
              Chain(folder).queryRelatives(query, {
                  "type": "a:child"
