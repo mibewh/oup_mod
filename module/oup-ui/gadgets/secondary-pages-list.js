@@ -83,10 +83,10 @@ define(function(require, exports, module) {
             });
             
             // Do this if you want to only show journals inside of this folder            
-            // var folder = self.observable("document").get();            
-            // Chain(folder).queryRelatives(query, pagination).then(function() {
-            //     callback(this);
-            // });            
+             var folder = self.observable("document").get();            
+             Chain(folder).queryRelatives(query, pagination).then(function() {
+                 callback(this);
+             });            
         },
 
         columnValue: function(row, item, model, context) {
