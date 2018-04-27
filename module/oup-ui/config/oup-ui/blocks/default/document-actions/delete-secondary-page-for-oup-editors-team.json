@@ -3,10 +3,11 @@
     "condition": "oup-editors",
     "config": {
         "document-actions": [{
-            "key": "edit-secondary-page",
-            "title": "Edit Secondary Page",
+            "key": "delete-secondary-page",
+            "title": "Delete Secondary Page",
             "iconClass": "fa fa-book",
-            "action": "edit-secondaryPage"
+            "action": "delete-secondaryPage"
         }]
     }
 }
+
