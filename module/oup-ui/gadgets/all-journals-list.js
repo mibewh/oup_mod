@@ -22,7 +22,8 @@ define(function(require, exports, module) {
                     "searchTerm": "all-journals-list_searchTerm",
                     "selectedItems": "all-journals-list_selectedItems"
                 },
-                "loader": "gitana"
+                "loader": "gitana",
+                "actions": true
             });
         },
 
@@ -32,6 +33,16 @@ define(function(require, exports, module) {
                 "plural": "journals",
                 "singular": "journal"
             }
+        },
+        
+        prepareModel: function(el, model, callback)
+        {
+            var self = this;
+
+            this.base(el, model, function() {
+                model.project = self.observable("project").get();
+                callback();
+            });
         },
 
         afterSwap: function(el, model, context, callback)
@@ -71,9 +82,43 @@ define(function(require, exports, module) {
 
             pagination.paths = true;
 
+            model.sitesByRouteName = {};
+            
+            var loadParentSites = function(branch, siteParentIdentifiers, model, done) {
+                
+                Chain(branch).queryNodes({
+                    "siteRouteName": {
+                        "$in": siteParentIdentifiers
+                    }
+                }).each(function() {
+                    if (this.siteRouteName) {
+                        model.sitesByRouteName[this.siteRouteName] = this;
+                    }
+                }).then(function() {
+                    done();
+                });
+                
+            };
+            
+            var siteParentIdentifiers = [];
+
             var branch = self.observable("branch").get();
-            Chain(branch).queryNodes(query, pagination).then(function(){
-                callback(this);
+            Chain(branch).queryNodes(query, pagination).each(function() {
+                if (this.siteParent && !siteParentIdentifiers.contains(this.siteParent)) {
+                    siteParentIdentifiers.push(this.siteParent);
+                }
+                if (this.siteRouteName) {
+                    model.sitesByRouteName[this.siteRouteName] = this;
+                }                
+            }).then(function(){
+                
+                var resultMap = this;
+                
+                // load any site parents?
+                loadParentSites(branch, siteParentIdentifiers, model, function() {
+                    callback(resultMap);                    
+                });                
+
             });
         },
 
@@ -83,14 +128,23 @@ define(function(require, exports, module) {
             var last = null;
             for (var i = 0; i < model.rows.length; i++)
             {
-                var siteParent = model.rows[i].siteParent;
-                if( last !== siteParent) {
+                var siteParentIdentifier = model.rows[i].siteParent;
+                if( last !== siteParentIdentifier) 
+                {
                     var rows = api.rows( {page:'current'} ).nodes();
-                    $(rows).eq(i).before(
-                        '<tr class="group"><td colspan="5">'+ '<strong>' + siteParent + '</strong>'+ '</td></tr>'
-                    );
+                    
+                    var siteParentTitle = "Ungrouped";
+                    
+                    var parentSite = model.sitesByRouteName[siteParentIdentifier];
+                    if (parentSite)
+                    {
+                        siteParentTitle = "<a href='/#/projects/" + model.project._doc + "/documents/" + parentSite._doc + "/browse'>" + parentSite.title + "</a>";
+                    }
+                    
+                    var insertEl = $('<tr class="group"><td colspan="4"><strong>' + siteParentTitle + '</strong></td></tr>');
+                    $(rows).eq(i).before(insertEl);
 
-                    last = siteParent;
+                    last = siteParentIdentifier;
                 }
             }
             

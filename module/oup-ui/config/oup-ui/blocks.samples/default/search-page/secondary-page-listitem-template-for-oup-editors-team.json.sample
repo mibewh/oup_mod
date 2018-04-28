@@ -1,0 +1,12 @@
+{
+    "evaluator": "current-user-has-team",
+    "condition": "oup-editors",
+    "config": {
+        "search-page": {
+            "types": [{
+                "key": "type:secondarypage0",
+                "template": "templateKey"
+            }]
+        }
+    }
+}

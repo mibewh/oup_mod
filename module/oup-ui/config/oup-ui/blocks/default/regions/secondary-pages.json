@@ -15,8 +15,7 @@
       "center": {
         "type": "secondary-pages-list",
         "config": {
-          "chrome": false,
-          "loader": "gitana"
+          "chrome": false
         }
       }
     }

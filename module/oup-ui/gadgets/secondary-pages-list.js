@@ -28,19 +28,28 @@ define(function(require, exports, module) {
             this.config({
                 "columns": [{
                     "key": "pageName",
-                    "title": "Page Name"
+                    "title": "Page Name",
+                    "sort": true,
+                    "sortProperty": "title"
                 }, {
                     "title": "URL Path",
-                    "key": "path"
+                    "key": "path",
+                    "sort": true,
+                    "sortProperty": "scURL"
                 }, {
                     "key": "modifiedOn",
-                    "title": "Last Modified On"
+                    "title": "Last Modified On",
+                    "sort": true,
+                    "sortProperty": "_system.modified_on.ms"
                 }, {
                     "key": "modifiedBy",
-                    "title": "Modified By"
+                    "title": "Modified By",
+                    "sort": true,
+                    "sortProperty": "_system.modified_by"
                 }],
                 "loader": "gitana",
-                "checkbox": false
+                "checkbox": true,
+                "icon": true
             });
         },
 
@@ -77,11 +86,6 @@ define(function(require, exports, module) {
 
             pagination.paths = true;
 
-//            var branch = self.observable("branch").get();
-//            Chain(branch).queryNodes(query, pagination).then(function(){
-//                callback(this);
-//            });
-            
              var folder = self.observable("document").get();            
              Chain(folder).queryRelatives(query, {
                  "type": "a:child"
