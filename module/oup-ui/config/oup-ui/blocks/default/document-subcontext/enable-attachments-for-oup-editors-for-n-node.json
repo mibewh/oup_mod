@@ -1,0 +1,33 @@
+{
+    "evaluator": "and",
+    "condition": [
+        {
+            "evaluator": "current-user-has-team",
+            "condition": "oup-editors"
+        },
+        {
+            "evaluator": "not",
+            "condition": [
+                {
+                    "evaluator": "document-has-type",
+                    "condition": "n:node"
+                }
+            ]
+        }
+    ],
+    "config": {
+        "document-subcontext": {
+            "items": [
+                {
+                    "key": "document",
+                    "items": [
+                        {
+                            "key": "document/attachments",
+                            "remove": true
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -11,10 +11,6 @@
                     "remove": true
                 },
                 {
-                    "key": "document/attachments",
-                    "remove": true
-                },
-                {
                     "key": "document/authorities",
                     "remove": true
                 },
