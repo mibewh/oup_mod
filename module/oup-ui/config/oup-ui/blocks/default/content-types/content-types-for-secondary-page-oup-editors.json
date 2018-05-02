@@ -1,0 +1,19 @@
+{
+    "evaluator": "and",
+    "condition": [{
+        "evaluator": "current-user-has-team",
+        "condition": "oup-editors"
+    }, {
+        "evaluator": "context-document-has-type",
+        "condition": "type:secondarypagesfolder0"   
+    }],
+    "config": {
+        "content-types": {
+            "items": [{
+                "key": "type:secondarypage0",
+                "title": "Secondary Page"
+            }
+        ]
+        }
+    }
+}
