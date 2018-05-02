@@ -40,9 +40,13 @@
             "remove": true
         },
         {
+            "key": "touch-document",
+            "remove": true
+        },
+        {
             "key": "delete-document",
             "remove": true
-        }
+        } 
     ]
     }
   }
