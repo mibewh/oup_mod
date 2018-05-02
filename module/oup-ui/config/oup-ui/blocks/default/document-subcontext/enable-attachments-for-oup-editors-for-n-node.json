@@ -1,18 +1,9 @@
 {
-    "evaluator": "and",
+    "evaluator": "not",
     "condition": [
         {
-            "evaluator": "current-user-has-team",
-            "condition": "oup-editors"
-        },
-        {
-            "evaluator": "not",
-            "condition": [
-                {
-                    "evaluator": "document-has-type",
-                    "condition": "n:node"
-                }
-            ]
+            "evaluator": "document-has-type",
+            "condition": "n:node"
         }
     ],
     "config": {
