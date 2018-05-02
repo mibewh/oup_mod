@@ -5,13 +5,13 @@
         "condition": "oup-editors"
     }, {
         "evaluator": "context-document-has-type",
-        "condition": "type:secondarypagesfolder0"   
+        "condition": "type:containeritemsfolder0"   
     }],
     "config": {
         "content-types": {
             "items": [{
                 "key": "type:secondarypage0",
-                "title": "Secondary Page"
+                "title": "Secondary Page Test"
             }
         ]
         }
