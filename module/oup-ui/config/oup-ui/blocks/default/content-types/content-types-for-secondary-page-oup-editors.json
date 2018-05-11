@@ -8,8 +8,8 @@
         "condition": "type:containeritemsfolder0"   
     }],
     "config": {
+        "remove":true,
         "content-types": {
-            "remove":true,
             "items": [{
                 "key": "type:secondarypage0"
             }
