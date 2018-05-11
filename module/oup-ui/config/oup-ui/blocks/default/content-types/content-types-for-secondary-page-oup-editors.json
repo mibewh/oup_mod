@@ -11,7 +11,8 @@
         "remove":true,
         "content-types": {
             "items": [{
-                "key": "type:secondarypage0"
+                "key": "type:secondarypage0",
+                "title":"Secondary Page Test1"
             }
         ]
         }
