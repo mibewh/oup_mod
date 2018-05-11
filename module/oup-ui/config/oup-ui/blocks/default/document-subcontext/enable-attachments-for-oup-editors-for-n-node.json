@@ -2,7 +2,7 @@
     "evaluator": "not",
     "condition": [
         {
-            "evaluator": "document-has-type",
+            "evaluator": "context-document-has-type",
             "condition": "n:node"
         }
     ],
