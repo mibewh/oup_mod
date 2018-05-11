@@ -9,9 +9,9 @@
     }],
     "config": {
         "content-types": {
+            "remove":true,
             "items": [{
-                "key": "type:secondarypage0",
-                "title": "Secondary Page Test"
+                "key": "type:secondarypage0"
             }
         ]
         }
