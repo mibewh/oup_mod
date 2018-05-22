@@ -1,7 +1,7 @@
 define(function(require) {
 
     // Instanciate Actions
-    require("./actions/create-journal/create-secondaryPage.js");
+    require("./actions/create-journal/create-secondaryPage.js"); 
     require("./actions/create-journal/edit-secondaryPage.js");
     require("./actions/create-journal/delete-secondaryPage.js");
 
