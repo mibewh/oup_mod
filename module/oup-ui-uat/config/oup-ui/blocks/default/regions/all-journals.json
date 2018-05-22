@@ -1,0 +1,24 @@
+{
+  "evaluator": "and",
+  "condition": [
+    {
+      "evaluator": "uri-match",
+      "condition": "/projects/{projectId}/documents/{documentId}/browse"
+    },
+    {
+      "evaluator": "context-document-has-type",
+      "condition": "type:alljournalsfolde0"
+    }
+  ],
+  "config": {
+    "regions": {
+      "center": {
+        "type": "all-journals-list",
+        "config": {
+          "chrome": false,
+          "loader": "gitana"
+        }
+      }
+    }
+  }
+}

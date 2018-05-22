@@ -1,0 +1,13 @@
+{
+    "evaluator": "current-user-has-team",
+    "condition": "academic-editors",
+    "config": {
+        "document-actions": [{
+            "key": "delete-secondary-page",
+            "title": "Delete Secondary Page",
+            "iconClass": "fa fa-book",
+            "action": "delete-secondaryPage"
+        }]
+    }
+}
+

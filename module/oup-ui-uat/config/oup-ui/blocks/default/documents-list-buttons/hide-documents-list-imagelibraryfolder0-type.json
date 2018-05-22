@@ -1,0 +1,14 @@
+{
+    "evaluator": "document-has-type",
+    "condition": "type:imagelibraryfolder0",
+    "config": {
+        "documents-list-buttons": [{
+            "key": "new",
+            "buttons": [{
+                "key": "new_document",
+                "title": "Create an Image"
+
+            }]
+        }]
+    }
+}
