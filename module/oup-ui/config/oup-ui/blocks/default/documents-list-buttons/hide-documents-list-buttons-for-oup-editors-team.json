@@ -1,0 +1,28 @@
+{
+    "evaluator": "current-user-has-team",
+    "condition": "oup-editors",
+    "config": {
+        "documents-list-buttons": [{
+            "key": "new",
+            "buttons": [{
+                "key": "new_text_document",
+                "remove": true
+            }, {
+                "key": "new_document",
+                "title": "Create Page Template"
+            }]
+        }, {
+            "key": "view_rules",
+            "remove": true
+        }, {
+            "key": "sort-direction-selector",
+            "remove": true
+        }, {
+            "key": "sort-selector",
+            "remove": true
+        }, {
+            "key": "multi-documents-action-selector",
+            "remove": true
+        }]
+    }
+}
