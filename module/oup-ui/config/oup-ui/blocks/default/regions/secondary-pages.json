@@ -13,10 +13,7 @@
   "config": {
     "regions": {
       "center": {
-        "type": "secondary-pages-list",
-        "config": {
-          "chrome": false
-        }
+        "type": "secondary-pages-list"
       }
     }
   }

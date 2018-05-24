@@ -13,11 +13,7 @@
   "config": {
     "regions": {
       "center": {
-        "type": "all-journals-list",
-        "config": {
-          "chrome": false,
-          "loader": "gitana"
-        }
+        "type": "all-journals-list"
       }
     }
   }

@@ -17,6 +17,8 @@ define(function(require, exports, module) {
         {
             var config = this.base();
             config.columns = [];
+            config.chrome = false;
+            config.loader = "gitana";
 
             return config;
         },
@@ -56,8 +58,8 @@ define(function(require, exports, module) {
         entityTypes: function()
         {
             return {
-                "plural": "secondary-pages",
-                "singular": "secondary-page"
+                "plural": "secondary pages",
+                "singular": "secondary page"
             }
         },
 
