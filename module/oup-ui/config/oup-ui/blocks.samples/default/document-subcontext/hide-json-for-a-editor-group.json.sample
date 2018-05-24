@@ -7,7 +7,7 @@
         "items": [{
           "key": "document/json",
           "rejectAuthority": [
-            "oup-editors"
+            "academic-editors"
           ]
         }]
       }]

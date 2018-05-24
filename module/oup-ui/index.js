@@ -6,8 +6,8 @@ define(function(require) {
     require("./actions/create-journal/delete-secondaryPage.js");
 
     // new pages
-    require("./gadgets/all-journals-list.js");
-    require("./gadgets/secondary-pages-list.js");
+    //require("./gadgets/all-journals-list.js");
+    //require("./gadgets/secondary-pages-list.js");
     
     // use this to globally control the position of helper text
     Alpaca.defaultHelpersPosition = "above";  

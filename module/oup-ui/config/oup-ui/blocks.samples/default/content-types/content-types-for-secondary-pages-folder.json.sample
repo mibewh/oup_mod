@@ -2,7 +2,7 @@
     "evaluator": "and",
     "condition": [{
         "evaluator": "current-user-has-team",
-        "condition": "oup-editors"
+        "condition": "academic-editors"
     }, {
         "evaluator": "context-document-has-type",
         "condition": "type:secondarypagesfolder0"   
