@@ -116,7 +116,7 @@ define(function(require, exports, module) {
 
             if (item.key === "siteSortname") {
                 var project = self.observable("project").get();
-                value += "<a href='#/projects/" + project._doc + "/documents/" + row._doc + "'>";
+                value += "<a href='#/projects/" + project._doc + "/documents/" + row._doc + "/browse'>";
                 value += row.siteSortname;
                 value += "</a>";
                 return value;
@@ -142,6 +142,7 @@ define(function(require, exports, module) {
             var self = this;
             
             /** Include the same actions as the document-list **/
+            /*
             var thing = Chain(row);            
             var itemActions = OneTeam.configEvalArray(thing, "documents-list-item-actions", self);
             if (itemActions && itemActions.length > 0)
@@ -151,9 +152,9 @@ define(function(require, exports, module) {
                     selectorGroup.actions.push(itemActions[z]);
                 }
             }
+            */
             
             /** OR... override completely... */
-            /*
             selectorGroup.length = 0; // clears the array        
             selectorGroup.push({
                 "key": "edit-document",
@@ -161,8 +162,6 @@ define(function(require, exports, module) {
                 "iconClass": "fa fa-pencil",
                 "order": 1000
             });
-            */
-            
         }
 
     }));
