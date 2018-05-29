@@ -1,6 +1,6 @@
 {
     "evaluator": "current-user-has-team",
-    "condition": "oup-editors",
+    "condition": "academic-editors",
     "config": {
         "document-subcontext": {
             "items": [{
