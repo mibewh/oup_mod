@@ -54,6 +54,7 @@ define(function(require, exports, module) {
                 }],
                 "loader": "gitana",
                 "checkbox": true,
+                "actions": true,
                 "icon": true
             });
         },
@@ -80,7 +81,15 @@ define(function(require, exports, module) {
 
             if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
             {
-                query = OneTeam.searchQuery(searchTerm, ["title", "siteRouteName", "siteName", "templateType", "issn", "description", "raw"]);
+                query = OneTeam.searchQuery(searchTerm, [
+                    "title", 
+                    "siteRouteName", 
+                    "siteName", 
+                    "templateType", 
+                    "issn", 
+                    "description", 
+                    "raw"
+                ]);
             }
 
             if (!query)
@@ -99,10 +108,11 @@ define(function(require, exports, module) {
              });            
         },
 
-        columnValue: function(row, item, model, context) {
+        columnValue: function(row, item, model, context) 
+        {
             var self = this;
 
-            var value = "";
+            var value = self.base(row, item, model, context);
 
             if (item.key === "siteSortname") {
                 var project = self.observable("project").get();
@@ -124,8 +134,24 @@ define(function(require, exports, module) {
                 return row.getSystemMetadata().getModifiedOn().getTimestamp();
             }                
 
-
             return value;
+        },
+        
+        populateSingleDocumentActions: function(row, item, model, context, selectorGroup)
+        {
+            var self = this;
+
+            var thing = Chain(row);
+
+            // evaluate the config space against the current row so that per-row action buttons customize per document
+            var itemActions = OneTeam.configEvalArray(thing, "documents-list-item-actions", self);
+            if (itemActions && itemActions.length > 0)
+            {
+                for (var z = 0; z < itemActions.length; z++)
+                {
+                    selectorGroup.actions.push(itemActions[z]);
+                }
+            }
         }
 
     }));
