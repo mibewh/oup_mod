@@ -140,10 +140,9 @@ define(function(require, exports, module) {
         populateSingleDocumentActions: function(row, item, model, context, selectorGroup)
         {
             var self = this;
-
-            var thing = Chain(row);
-
-            // evaluate the config space against the current row so that per-row action buttons customize per document
+            
+            /** Include the same actions as the document-list **/
+            var thing = Chain(row);            
             var itemActions = OneTeam.configEvalArray(thing, "documents-list-item-actions", self);
             if (itemActions && itemActions.length > 0)
             {
@@ -152,6 +151,18 @@ define(function(require, exports, module) {
                     selectorGroup.actions.push(itemActions[z]);
                 }
             }
+            
+            /** OR... override completely... */
+            /*
+            selectorGroup.length = 0; // clears the array        
+            selectorGroup.push({
+                "key": "edit-document",
+                "link": "/#/projects/{{project._doc}}/documents/{{document._doc}}/properties",
+                "iconClass": "fa fa-pencil",
+                "order": 1000
+            });
+            */
+            
         }
 
     }));
