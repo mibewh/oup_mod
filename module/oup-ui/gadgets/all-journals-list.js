@@ -155,8 +155,8 @@ define(function(require, exports, module) {
             */
             
             /** OR... override completely... */
-            selectorGroup.length = 0; // clears the array        
-            selectorGroup.push({
+            selectorGroup.actions.length = 0; // clears the array        
+            selectorGroup.actions.push({
                 "key": "edit-document",
                 "link": "/#/projects/{{project._doc}}/documents/{{document._doc}}/properties",
                 "iconClass": "fa fa-pencil",
