@@ -1,0 +1,10 @@
+{
+    "evaluator": "document-has-path",
+    "condition": "/Journals/Journal_2",
+    "config": {
+        "documents-list-selected-actions": [{
+            "action": "delete_documents",
+            "remove": true
+        }]
+    }
+}

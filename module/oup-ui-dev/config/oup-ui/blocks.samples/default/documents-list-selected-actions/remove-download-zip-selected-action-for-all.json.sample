@@ -1,0 +1,10 @@
+{
+    "evaluator": "project-has-title",
+    "condition": "Global Academic Platform (Authoring)",
+    "config": {
+        "documents-list-selected-actions": [{
+            "action": "download",
+            "remove": true
+        }]
+    }
+}

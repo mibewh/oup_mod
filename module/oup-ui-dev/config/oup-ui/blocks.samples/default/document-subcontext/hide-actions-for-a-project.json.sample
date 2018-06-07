@@ -1,0 +1,23 @@
+{
+  "evaluator": "and",
+  "condition": [{
+    "evaluator": "context-document"
+  }, {
+    "evaluator": "project-has-title",
+    "condition": "Global Academic Platform (Authoring)"
+  }],
+  "config": {
+    "document-subcontext": {
+      "items": [{
+        "key": "document",
+        "title": "Document",
+        "header": true,
+        "order": 1000,
+        "items": [{
+          "key": "document/deployments",
+          "remove": true
+        }]
+      }]
+    }
+  }
+}

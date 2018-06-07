@@ -1,0 +1,16 @@
+{
+    "evaluator": "current-user-has-team",
+    "condition": "academic-editors",
+    "config": {
+        "content-types": {
+            "items": [{
+                "key": "blog:blog",
+                "remove": true
+            }, {
+                "key": "n:node",
+                "remove": false,
+                "title": "Empty Node"
+            }]
+        }
+    }
+}
