@@ -119,7 +119,7 @@ define(function(require, exports, module) {
                 value += "<a href='#/projects/" + project._doc + "/documents/" + row._doc + "/browse'>";
                 value += row.siteSortname;
                 value += "</a>";
-                return row.siteSortname;
+                return value;
             }
 
             if (item.key === "journalCode") {
