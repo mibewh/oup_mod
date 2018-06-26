@@ -8,6 +8,10 @@
                     "items": [{
                         "key": "project/content",
                         "title": "Content by Type"
+                    },
+                    {
+                        "key": "project/documents",
+                        "title": "Browse all Content"
                     }]
                 }
             ]
