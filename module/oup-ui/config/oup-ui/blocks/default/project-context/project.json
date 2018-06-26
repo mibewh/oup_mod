@@ -4,13 +4,7 @@
         "project-context": {
             "items": [
                 {
-                    "key": "project/content/heading",
-                    "items": [{
-                        "key": "project/all-journals",
-                        "title": "All Journals",
-                        "uri": "#/projects/{projectId}/documents/ec4af0398c961e6c280f/browse",
-                        "iconClass": "fa fa-book"
-                    }]
+                    "key": "project/content/heading"
                 }
             ]
         }
