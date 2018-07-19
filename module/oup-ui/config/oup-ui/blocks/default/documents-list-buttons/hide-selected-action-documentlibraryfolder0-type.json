@@ -1,0 +1,15 @@
+{
+    "evaluator": "document-has-type",
+    "condition": "type:documentlibraryfolder0",
+    "config": {
+        "documents-list-selected-actions": [
+         {
+            "action": "download",
+            "remove": true
+        },
+        {
+            "action": "start-workflow",
+            "remove": true
+        }]
+    }
+}

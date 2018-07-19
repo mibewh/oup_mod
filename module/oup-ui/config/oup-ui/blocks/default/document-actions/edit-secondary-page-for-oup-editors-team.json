@@ -1,6 +1,5 @@
 {
-    "evaluator": "current-user-has-team",
-    "condition": "academic-editors",
+   
     "config": {
         "document-actions": [{
             "key": "edit-secondary-page",

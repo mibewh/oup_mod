@@ -5,9 +5,16 @@
         "documents-list-buttons": [{
             "key": "new",
             "buttons": [{
-                "key": "new_document",
-                "title": "Create a Document"
-
+                "key": "upload",
+                "remove": true
+            }
+            ]
+        },
+        {
+            "key": "multi-documents-action-selector",
+            "buttons": [{
+                "key": "start-workflow",
+                "remove": true
             }]
         }]
     }

@@ -84,7 +84,8 @@ define(function(require, exports, module) {
             {
                 query = {};
             }
-            query._type = "type:secondarypage0";
+            
+            query._type = {"$in":["type:secondarypage0","type:genericform"]};
 
             pagination.paths = true;
 
@@ -118,7 +119,7 @@ define(function(require, exports, module) {
             }                
 
             if (item.key === "path") {
-                return row.scURL;
+                return row.scUrl;
             }
 
             return value;

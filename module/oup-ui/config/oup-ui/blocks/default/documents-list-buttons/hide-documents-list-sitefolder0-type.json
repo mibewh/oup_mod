@@ -1,0 +1,22 @@
+{
+    "evaluator": "document-has-type",
+    "condition": "type:sitefolder0",
+    "config": {
+        "documents-list-buttons": [
+            {
+                "key": "new",
+                "remove": true
+            },
+            {   "key": "view_rules",
+                "remove": true
+            },
+            {
+                "key": "multi-documents-action-selector",
+                "buttons": [{
+                    "key": "start-workflow",
+                    "remove": true
+                }]
+            }
+        ]
+    }
+}

@@ -112,8 +112,8 @@ define(function(require, exports, module) {
         {
             var self = this;
 
-            var value = self.base(row, item, model, context);
-
+            //var value = self.base(row, item, model, context);
+            var value = "";
             if (item.key === "siteSortname") {
                 var project = self.observable("project").get();
                 value += "<a href='#/projects/" + project._doc + "/documents/" + row._doc + "/browse'>";

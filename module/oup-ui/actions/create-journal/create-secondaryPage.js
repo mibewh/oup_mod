@@ -17,7 +17,7 @@ define(function (require, exports, module) {
             
             // specify iframe width and height
             config.iframeWidth = "100%";
-            config.iframeHeight = "512px";
+            config.iframeHeight = "720px";
 
             return config;
         },

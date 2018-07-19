@@ -13,6 +13,20 @@
                 "allowPermission": [
                     "create_subobjects"
                 ]
+            },
+            {
+                "key": "new_folder",
+                "remove": true
+            }, {
+                "key": "new_document",
+                "remove": true
+            }, {
+                "key": "upload",
+                "remove": true
+            },
+            {
+                "key": "new_text_document",
+                "remove": true
             }]
         }]
     }

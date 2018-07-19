@@ -8,6 +8,10 @@
     {
       "evaluator": "context-document-has-type",
       "condition": "type:secondarypagesfolder0"
+    },
+    {
+      "evaluator": "current-user-has-team",
+      "condition": "academic-editors"
     }
   ],
   "config": {

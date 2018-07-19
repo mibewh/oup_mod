@@ -7,7 +7,24 @@
             "buttons": [{
                 "key": "upload",
                 "remove": true
+            },
+            {
+                "key": "new_folder",
+                "remove": true
+            },
+            {
+                "key": "new_text_document",
+                "remove": true
+            },
+            {
+                "key": "new_document",
+                "title": "Create a Content Item"
             }]
-        }]
+            },
+            {
+                "key": "view_rules",
+                "remove": true
+            },
+        ],
     }
 }
