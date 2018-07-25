@@ -2,14 +2,7 @@
     "evaluator": "document-has-type",
     "condition": "type:documentlibraryfolder0",
     "config": {
-        "documents-list-buttons": [{
-            "key": "new",
-            "buttons": [{
-                "key": "upload",
-                "remove": true
-            }
-            ]
-        },
+        "documents-list-buttons": [
         {
             "key": "multi-documents-action-selector",
             "buttons": [{

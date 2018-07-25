@@ -37,7 +37,7 @@ define(function(require, exports, module) {
                     "title": "URL Path",
                     "key": "path",
                     "sort": true,
-                    "sortProperty": "scURL"
+                    "sortProperty": "scUrl"
                 }, {
                     "key": "modifiedOn",
                     "title": "Last Modified On",
