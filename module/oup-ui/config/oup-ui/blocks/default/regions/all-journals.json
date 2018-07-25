@@ -8,8 +8,8 @@
     {
       "evaluator": "context-document-has-type",
       "condition": "type:sitefolder0"
-    }
-    ,{
+    },
+    {
       "evaluator": "current-user-has-team",
       "condition": "academic-editors"
     }

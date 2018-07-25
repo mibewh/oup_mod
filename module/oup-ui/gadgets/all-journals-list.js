@@ -20,7 +20,6 @@ define(function(require, exports, module) {
             config.chrome = false;
             config.loader = "gitana";
 
-            config.removeSortButtons = true;
             config.removeSelectedButton = true;
 
             return config;
@@ -54,8 +53,8 @@ define(function(require, exports, module) {
                 }],
                 "loader": "gitana",
                 "checkbox": true,
-                "actions": true,
-                "icon": true
+                "actions": false,
+                "icon": false
             });
         },
 
@@ -75,6 +74,11 @@ define(function(require, exports, module) {
             });
         },
 
+        getDefaultSortField: function(model)
+        {
+            return "sortOrder";
+        },
+
         doGitanaQuery: function(context, model, searchTerm, query, pagination, callback)
         {
             var self = this;
@@ -82,13 +86,8 @@ define(function(require, exports, module) {
             if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
             {
                 query = OneTeam.searchQuery(searchTerm, [
-                    "title", 
-                    "siteRouteName", 
-                    "siteName", 
-                    "templateType", 
-                    "issn", 
-                    "description", 
-                    "raw"
+                    "siteRouteName",
+                    "siteName"
                 ]);
             }
 
@@ -100,25 +99,50 @@ define(function(require, exports, module) {
 
             pagination.paths = true;
 
-             var folder = self.observable("document").get();            
-             Chain(folder).queryRelatives(query, {
-                 "type": "a:child"
-             }, pagination).then(function() {
-                 callback(this);
-             });            
+            var branch = self.observable("branch").get();
+
+            Chain(branch).queryNodes(query, pagination).each(function() {
+
+                if(pagination.sort["sortOrder"] != null) {
+                    if(this.siteParent!= "Journals") {
+                        if(!this.familySite || this.familySite === "N") {
+                            this.indent = true;
+                        }
+                        else {
+                            this.indent = false;
+                        }
+                    }
+                    else {
+                        this.indent = false;
+                    }
+                }
+            }).then(function () {
+                callback(this);
+            });
+
         },
 
-        columnValue: function(row, item, model, context) 
+        iconUri: function(row, model, context)
         {
-            var self = this;
+            return null;
+        },
 
-            //var value = self.base(row, item, model, context);
+        columnValue: function(row, item, model, context)
+        {
             var value = "";
             if (item.key === "siteSortname") {
-                var project = self.observable("project").get();
+                var project = this.observable("project").get();
+
+                if (row.indent) {
+                    value += "<div style= 'padding-left:30px'>";
+                }
+
                 value += "<a href='#/projects/" + project._doc + "/documents/" + row._doc + "/browse'>";
-                value += row.siteSortname;
+                value += "<img src='" + "/oneteam/modules/app/images/doclib/folder-32.png" + "'>" + "</a>";
+                value += "<a href='#/projects/" + project._doc + "/documents/" + row._doc + "/browse'>";
+                value +=  row.siteSortname;
                 value += "</a>";
+
                 return value;
             }
 
@@ -132,18 +156,18 @@ define(function(require, exports, module) {
 
             if (item.key === "modifiedOn") {
                 return row.getSystemMetadata().getModifiedOn().getTimestamp();
-            }                
+            }
 
             return value;
         },
-        
+
         populateSingleDocumentActions: function(row, item, model, context, selectorGroup)
         {
             var self = this;
-            
+
             /** Include the same actions as the document-list **/
             /*
-            var thing = Chain(row);            
+            var thing = Chain(row);
             var itemActions = OneTeam.configEvalArray(thing, "documents-list-item-actions", self);
             if (itemActions && itemActions.length > 0)
             {
@@ -153,9 +177,9 @@ define(function(require, exports, module) {
                 }
             }
             */
-            
+
             /** OR... override completely... */
-            selectorGroup.actions.length = 0; // clears the array        
+            selectorGroup.actions.length = 0; // clears the array
             selectorGroup.actions.push({
                 "key": "edit-document",
                 "link": "/#/projects/{{project._doc}}/documents/{{document._doc}}/properties",

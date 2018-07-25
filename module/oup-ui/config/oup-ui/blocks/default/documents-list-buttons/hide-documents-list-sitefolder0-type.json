@@ -11,6 +11,10 @@
                 "remove": true
             },
             {
+                "key": "sort-selector",
+                "remove": true
+            },
+            {
                 "key": "multi-documents-action-selector",
                 "buttons": [{
                     "key": "start-workflow",
