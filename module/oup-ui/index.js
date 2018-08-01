@@ -9,6 +9,9 @@ define(function(require) {
     require("./gadgets/all-journals-list.js");
     require("./gadgets/secondary-pages-list.js");
     
+    // new fields
+    require("./fields/oup-file-picker.js");
+    
     // use this to globally control the position of helper text
     Alpaca.defaultHelpersPosition = "above";  
       
