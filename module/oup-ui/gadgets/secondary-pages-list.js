@@ -1,10 +1,9 @@
-
 define(function(require, exports, module) {
 
     var Ratchet = require("ratchet/web");
     var DocumentsList = require("app/gadgets/project/documents/documents-list");
     var OneTeam = require("oneteam");
-
+    var Actions = require("ratchet/actions");
     return Ratchet.GadgetRegistry.register("secondary-pages-list", DocumentsList.extend({
 
         setup: function()
@@ -44,12 +43,18 @@ define(function(require, exports, module) {
                     "sort": true,
                     "sortProperty": "_system.modified_on.ms"
                 }, {
+                    "key": "status",
+                    "title": "Status",
+                    "sort": true,
+                    "sortProperty": "lifeCycle"
+                }, {
                     "key": "modifiedBy",
                     "title": "Modified By",
                     "sort": true,
                     "sortProperty": "_system.modified_by"
                 }],
                 "loader": "gitana",
+                "actions": true,
                 "checkbox": true,
                 "icon": true
             });
@@ -97,6 +102,27 @@ define(function(require, exports, module) {
              });            
         },
 
+        populateSingleDocumentActions: function(row, item, model, context, selectorGroup)
+        {
+            var self = this;
+
+            /** \\Include the same actions as the document-list **/
+
+            var thing = Chain(row);
+            var itemActions = OneTeam.configEvalArray(thing, "documents-list-item-actions", self);
+            if (itemActions && itemActions.length > 0)
+            {
+                for (var z = 0; z < itemActions.length; z++)
+                {
+                    //to include the quick links just remove the following check
+                    if(itemActions[z].key != "view-json" && itemActions[z].key != "locked")
+                    {
+                        selectorGroup.actions.push(itemActions[z]);
+                    }
+                }
+            }
+        },
+
         columnValue: function(row, item, model, context) {
             var self = this;
 
@@ -112,14 +138,105 @@ define(function(require, exports, module) {
 
             if (item.key === "modifiedOn") {
                 return row.getSystemMetadata().getModifiedOn().getTimestamp();
-            }                
+            }
 
             if (item.key === "modifiedBy") {
                 return row.getSystemMetadata().modified_by;
-            }                
+            }
 
             if (item.key === "path") {
                 return row.scUrl;
+            }
+
+            if (item.key === "status") {
+                return row.lifeCycle;
+            }
+
+            if (item.key == "actions") {
+
+                var id = "list-button-single-document-select-" + row.id;
+
+                // action drop down
+                var MODAL_TEMPLATE = ' \
+                    <div class="single-document-action-holder">\
+                        <ul role="menu" aria-labelledby="' + id + '"> \
+                        </ul> \
+                    </div> \
+                ';
+
+                var template = $(MODAL_TEMPLATE);
+
+                // load actions from the "single-document-action-selector-group" configuration
+                var selectorGroup = model["selectorGroups"]["single-document-action-selector-group"];
+
+                if (!selectorGroup) {
+                    selectorGroup = {};
+                }
+                if (!selectorGroup.actions) {
+                    selectorGroup.actions = [];
+                }
+                selectorGroup = JSON.parse(JSON.stringify(selectorGroup));
+                self.populateSingleDocumentActions(row, item, model, context, selectorGroup);
+
+                $.each(selectorGroup.actions, function(index, selectorGroupItem) {
+
+                    var link = selectorGroupItem.link;
+                    var actionId = selectorGroupItem.action;
+                    var iconClass = selectorGroupItem.iconClass;
+                    //var order = selectorGroupItem.order;
+
+                    var id = row.id;
+                    if (!id && row._doc) {
+                        id = row._doc;
+                    }
+                    if (!id && row.getId) {
+                        id = row.getId();
+                    }
+
+                    var html = null;
+
+                    if (link)
+                    {
+                        if (window.Handlebars)
+                        {
+                            var linkModel = {
+                                "document": row,
+                                "project": project
+                            };
+
+                            var templateFunction = Handlebars.compile(link);
+                            link = templateFunction(linkModel);
+                        }
+
+                        html = "<a href='" + link + "' list-row-id='" + id + "'>";
+                        html += "<i class='action-icon " + iconClass + "'></i>";
+                        html += "</a>";
+                    }
+                    else if (actionId)
+                    {
+                        // retrieve the action configuration
+                        var actionConfig = Actions.config(actionId);
+                        if (!actionConfig)
+                        {
+                            // skip this one
+                            Ratchet.logWarn("The action: " + actionId + " could not be found in actions config for selector group: single-document-action-selector-group");
+                        }
+                        else
+                        {
+                            html = "<a href='#' class='list-button-action list-button-action-" + actionId + "' list-action-id='" + actionId + "' list-row-id='" + id + "'>";
+                            html += "<i class='action-icon " + iconClass + "'></i>";
+                            html += "</a>";
+                        }
+                    }
+
+                    if (html)
+                    {
+                        $(template).find("ul").append("<li>" + html + "</li>");
+                    }
+
+                });
+
+                return $(template).outerHTML();
             }
 
             return value;

@@ -7,6 +7,8 @@ define(function(require) {
 
     // new pages
     require("./gadgets/all-journals-list.js");
+    require("./gadgets/content-instances-for-oup-editors-team.js");
+    require("./gadgets/journal-site-folder.js");
     require("./gadgets/secondary-pages-list.js");
     
     // new fields

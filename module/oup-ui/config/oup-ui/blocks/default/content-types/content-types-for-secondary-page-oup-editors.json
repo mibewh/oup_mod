@@ -5,7 +5,7 @@
         "condition": "academic-editors"
     }, {
         "evaluator": "context-document-has-type",
-        "condition": "type:containeritemsfolder0"   
+        "condition": "type:containeritemsfolder0"
     }],
     "config": {
         "remove":true,
