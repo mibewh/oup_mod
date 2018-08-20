@@ -53,7 +53,7 @@ define(function(require, exports, module) {
                 var branchId = node.getBranchId();
                 var nodeId = node.getId();
                 
-                var parentType = "my:journal-folder";
+                var parentType = "type:journalsitefolder0";
                 
                 // call back to Cloud CMS API to find the nearest ancestor of type "parentType"
                 // this walks up the folder structure until it finds a match
