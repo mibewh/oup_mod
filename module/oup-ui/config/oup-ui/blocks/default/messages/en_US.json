@@ -1,0 +1,13 @@
+{
+  "evaluator": "locale",
+  "condition": "en_US",
+  "config": {
+    "messages": {
+      "types": {
+        "Text": {
+          "locale": "Language"
+        }
+      }
+    }
+  }
+}
