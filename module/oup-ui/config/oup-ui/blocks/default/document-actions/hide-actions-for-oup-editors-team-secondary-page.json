@@ -1,0 +1,12 @@
+{
+    "evaluator": "context-document-has-type",
+    "condition": "type:secondarypage0",
+    "config": {
+      "document-actions": [
+        {
+            "key": "move-to",
+            "remove": true
+        }
+    ]
+    }
+  }

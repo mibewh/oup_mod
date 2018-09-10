@@ -9,10 +9,6 @@
                 "remove": true
             },
             {
-                "key": "new_folder",
-                "remove": true
-            },
-            {
                 "key": "new_text_document",
                 "remove": true
             },

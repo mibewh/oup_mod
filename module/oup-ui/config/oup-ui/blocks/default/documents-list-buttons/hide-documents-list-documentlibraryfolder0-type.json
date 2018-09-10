@@ -2,13 +2,23 @@
     "evaluator": "document-has-type",
     "condition": "type:documentlibraryfolder0",
     "config": {
-        "documents-list-buttons": [
-        {
-            "key": "multi-documents-action-selector",
-            "buttons": [{
-                "key": "start-workflow",
-                "remove": true
-            }]
-        }]
+        "documents-list-buttons": [{
+                "key": "multi-documents-action-selector",
+                "buttons": [{
+                    "key": "start-workflow",
+                    "remove": true
+                }]
+            },
+            {
+                "key": "new",
+                "buttons": [{
+                    "key": "new_text_document",
+                    "remove": true
+                }, {
+                    "key": "new_document",
+                    "title": "Create a Document"
+                }]
+            }
+        ]
     }
 }

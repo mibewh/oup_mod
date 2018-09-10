@@ -8,11 +8,15 @@ define(function(require) {
     // new pages
     require("./gadgets/all-journals-list.js");
     require("./gadgets/content-instances-for-oup-editors-team.js");
-    require("./gadgets/journal-site-folder.js");
+    //require("./gadgets/journal-site-folder.js");
     require("./gadgets/secondary-pages-list.js");
     
     // new fields
     require("./fields/oup-file-picker.js");
+
+    require("./media-types/thinglink-link.js");
+    require("./media-types/panopto-link.js");
+    require("./media-types/qzzr-link.js");
     
     // use this to globally control the position of helper text
     Alpaca.defaultHelpersPosition = "above";  

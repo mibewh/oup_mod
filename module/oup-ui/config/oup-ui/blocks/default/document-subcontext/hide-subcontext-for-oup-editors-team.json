@@ -29,9 +29,12 @@
                         "key": "document/rules",
                         "remove": true
                     },
-
                     {
                         "key": "document/tags",
+                        "remove": true
+                    },
+                    {
+                        "key": "document/workflows",
                         "remove": true
                     }
                 ]

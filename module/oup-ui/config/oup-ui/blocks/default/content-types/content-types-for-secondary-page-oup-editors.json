@@ -8,13 +8,69 @@
         "condition": "type:containeritemsfolder0"
     }],
     "config": {
-        "remove":true,
         "content-types": {
+            "remove" : true,
             "items": [{
-                "key": "type:secondarypage0",
-                "title":"Secondary Page Test1"
-            }
-        ]
+                "key": "type:connectcontentblock0",
+                "title": "Connect Content Block"
+            }, {
+                "key": "type:connectRightNav",
+                "title": "Connect Right Nav Container"
+            }, {
+                "key": "type:connectrowcontainer0",
+                "title": "Connect Row Container"
+            }, {
+                "key": "type:connectslot",
+                "title": "Connect Slot"
+            }, {
+                "key": "type:contentblock0",
+                "title": "Editable Content Block"
+            }, {
+                "key": "custom:heropanel0",
+                "title": "Hero Panel"
+            }, {
+                "key": "type:listingcontaine0",
+                "title": "Listing Container"
+            }, {
+                "key": "type:megarowcontaine0",
+                "title": "Mega Row Container"
+            }, {
+                "key": "type:newsitem0",
+                "title": "News Items"
+            }, {
+                "key": "type:podcastepisodeblock0",
+                "title": "Podcast Episode Block"
+            }, {
+                "key": "type:productcarouselrowcont",
+                "title": "Product Carousel Row Container"
+            }, {
+                "key": "type:relatedtitlescontentblock0",
+                "title": "Related Titles Content Block"
+            }, {
+                "key": "type:relatedtitlesrowcontainer0",
+                "title": "Related Titles Row Container"
+            }, {
+                "key": "type:rowcontainerfordynamicwidgets0",
+                "title": "Row Container for Dynamic Widgets"
+            }, {
+                "key": "type:rowcontaine0",
+                "title": "Row Container for Editable Blocks"
+            }, {
+                "key": "type:rssRightNav",
+                "title": "RSS Right Nav"
+            }, {
+                "key": "type:singlecolumnrowcontaine0",
+                "title": "Single Column Row Container"
+            }, {
+                "key": "type:twittercontentbloc0",
+                "title": "Twitter Content Block"
+            }, {
+                "key": "type:usefullink0",
+                "title": "Useful Links"
+            }, {
+                "key": "type:usefullinksrightnavcontaine0",
+                "title": "Useful Links Right Nav Container"
+            }]
         }
     }
 }

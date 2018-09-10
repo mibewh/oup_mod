@@ -1,0 +1,17 @@
+{
+    "evaluator": "context-project",
+    "config": {
+        "project-media-types": {
+            "mediatypes": [{
+                "key": "thinglink",
+                "label": "Thinglink"
+            },{
+                "key": "panopto",
+                "label": "Panopto"
+            },{
+                "key": "qzzr",
+                "label": "Qzzr"
+            }]
+        }
+    }
+}

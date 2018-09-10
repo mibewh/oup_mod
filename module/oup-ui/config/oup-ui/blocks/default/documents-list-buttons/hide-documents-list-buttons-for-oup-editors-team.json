@@ -9,7 +9,7 @@
                 "remove": true
             }, {
                 "key": "new_document",
-                "title": "Create Page Template"
+                "title": "Create a Document"
             }]
         }, {
             "key": "view_rules",

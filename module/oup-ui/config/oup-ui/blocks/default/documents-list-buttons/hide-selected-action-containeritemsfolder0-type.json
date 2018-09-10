@@ -10,6 +10,26 @@
         {
             "action": "start-workflow",
             "remove": true
+        },
+        {
+            "action": "change-document-types",
+            "remove": true
+        },
+        {
+            "action": "print",
+            "remove": true
+        },
+        {
+            "action": "export-download",
+            "remove": true
+        },
+        {
+            "action": "export-email",
+            "remove": true
+        },
+        {
+            "action": "export-document",
+            "remove": true
         }]
     }
 }
