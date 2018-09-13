@@ -1,6 +1,19 @@
 {
-    "evaluator": "current-user-has-team",
-    "condition": "academic-editors",
+    "evaluator": "and",
+    "condition": [
+        {
+            "evaluator": "current-user-has-team",
+            "condition": "academic-editors"
+        },
+        {
+            "evaluator": "not",
+            "condition":
+            {
+                "evaluator": "context-document-has-type",
+                "condition": "type:sitefolder0"
+            }
+        }
+    ],
     "config": {
         "documents-list-buttons": [{
             "key": "new",

@@ -1,0 +1,31 @@
+{
+  "evaluator": "and",
+  "condition": [
+    {
+      "evaluator": "current-user-has-team",
+      "condition": "academic-editors"
+    },
+    {
+      "evaluator": "context-document-has-type",
+      "condition": "type:sitefolder0"
+    }
+  ],
+  "config": {
+    "documents-list-buttons": [{
+      "key": "new",
+      "buttons": [{
+        "key": "new_text_document",
+        "remove": true
+      }, {
+        "key": "new_document",
+        "title": "Create a Document"
+      }]
+    }, {
+      "key": "view_rules",
+      "remove": true
+    }, {
+      "key": "sort-selector",
+      "remove": true
+    }]
+  }
+}

@@ -160,6 +160,24 @@ define(function(require, exports, module) {
             return value;
         },
 
+        linkUri: function(row, model, context)
+        {
+            var uri = null;
+
+            if (row.isContainer())
+            {
+                // folder
+                uri = OneTeam.linkUri(this, row, "browse");
+            }
+            else
+            {
+                // file
+                uri = OneTeam.linkUri(this, row);
+            }
+
+            return uri;
+        },
+
         prepareModel: function(el, model, callback)
         {
             var self = this;
