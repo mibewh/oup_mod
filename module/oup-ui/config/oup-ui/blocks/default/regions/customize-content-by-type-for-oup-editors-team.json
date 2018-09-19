@@ -2,8 +2,17 @@
   "evaluator": "and",
   "condition": [
     {
-      "evaluator": "uri-match",
-      "condition": "/projects/{projectId}/content/{qname}"
+      "evaluator": "or",
+      "condition": [
+        {
+          "evaluator": "uri-match",
+          "condition": "/projects/{projectId}/content/{qname}"
+        },
+        {
+          "evaluator": "uri-match",
+          "condition": "/projects/{projectId}/content"
+        }
+      ]
     },
     {
       "evaluator": "current-user-has-team",
