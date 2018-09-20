@@ -70,6 +70,18 @@
             }, {
                 "key": "type:usefullinksrightnavcontaine0",
                 "title": "Useful Links Right Nav Container"
+            }, {
+                "key": "type:browsecontrol0",
+                "title": "Browse Controls"
+            }, {
+                "key": "type:contact0",
+                "title": "Contact"
+            }, {
+                "key": "type:contactsContainer0",
+                "title": "Contacts Container"
+            }, {
+                "key": "type:rowcontainerfordynamicwidgetsAdvanced0",
+                "title": "Row Container for Dynamic Widgets with Advanced Settings"
             }]
         }
     }

@@ -1,10 +1,20 @@
 {
-    "evaluator": "context-document-has-type",
-    "condition": "type:secondarypage0",
+    "evaluator": "or",
+    "condition": [{
+        "evaluator": "context-document-has-type",
+        "condition": "type:secondarypage0"
+    }, {
+        "evaluator": "context-document-has-type",
+        "condition": "type:genericform"
+    }],
     "config": {
       "document-actions": [
         {
             "key": "move-to",
+            "remove": true
+        },
+        {
+            "key": "start-workflow",
             "remove": true
         }
     ]

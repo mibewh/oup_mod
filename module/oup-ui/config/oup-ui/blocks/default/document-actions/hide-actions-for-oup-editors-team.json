@@ -46,7 +46,11 @@
         {
             "key": "delete-document",
             "remove": true
-        } 
+        },
+        {
+            "key": "start-workflow",
+            "remove": true
+        }
     ]
     }
   }

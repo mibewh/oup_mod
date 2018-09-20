@@ -2,10 +2,10 @@
     "config": {
         "document-actions": [{
             "key": "set-locale",
-            "title": "Set Language",
+            "title": "Set Language"
         }, {
             "key": "remove-locale",
-            "title": "Remove Language",                
+            "title": "Remove Language"              
         }]
     }
 }

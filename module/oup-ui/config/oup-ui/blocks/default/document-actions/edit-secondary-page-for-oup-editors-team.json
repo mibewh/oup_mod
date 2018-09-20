@@ -1,5 +1,14 @@
 {
-   
+    "evaluator": "or",
+    "condition": [{
+            "evaluator": "context-document-has-type",
+            "condition": "type:secondarypage0",
+        },
+        {
+            "evaluator": "context-document-has-type",
+            "condition": "type:genericform"
+        }
+    ],
     "config": {
         "document-actions": [{
             "key": "edit-secondary-page",

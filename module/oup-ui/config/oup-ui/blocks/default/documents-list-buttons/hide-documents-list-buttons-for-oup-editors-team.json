@@ -12,6 +12,14 @@
                 "evaluator": "context-document-has-type",
                 "condition": "type:sitefolder0"
             }
+        },
+        {
+            "evaluator": "not",
+            "condition":
+            {
+                "evaluator": "context-document-has-type",
+                "condition": "type:secondarypagesfolder0"
+            }
         }
     ],
     "config": {

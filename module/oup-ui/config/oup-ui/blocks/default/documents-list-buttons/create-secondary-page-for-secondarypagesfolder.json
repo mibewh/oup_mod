@@ -1,33 +1,34 @@
-{
+{   
     "evaluator": "document-has-type",
     "condition": "type:secondarypagesfolder0",
     "config": {
         "documents-list-buttons": [{
             "key": "new",
             "buttons": [{
-                "key": "create-secondaryPage",
-                "title": "Create Secondary Page",
-                "iconClass": "fa fa-plus",
-                "align": "left",
-                "action": "create-secondaryPage",
-                "allowPermission": [
-                    "create_subobjects"
-                ]
-            },
-            {
-                "key": "new_folder",
-                "remove": true
-            }, {
-                "key": "new_document",
-                "remove": true
-            }, {
-                "key": "upload",
-                "remove": true
-            },
-            {
-                "key": "new_text_document",
-                "remove": true
-            }]
+                    "key": "create-secondaryPage",
+                    "title": "Create Secondary Page",
+                    "iconClass": "fa fa-plus",
+                    "align": "left",
+                    "action": "create-secondaryPage",
+                    "allowPermission": [
+                        "create_subobjects"
+                    ]
+                },
+                {
+                    "key": "new_folder",
+                    "remove": true
+                }, {
+                    "key": "new_document",
+                    "remove": true
+                }, {
+                    "key": "upload",
+                    "remove": true
+                },
+                {
+                    "key": "new_text_document",
+                    "remove": true
+                }
+            ]
         }]
     }
 }
