@@ -127,7 +127,31 @@ define(function(require, exports, module) {
                 var result = {
                     "rows": []
                 };
-                list.push(homePageList, secondaryPageList, containerItemsList, imageLibraryList, documentLibraryList);
+
+                if(homePageList.length > 0)
+                {
+                    list.push(homePageList);
+                }
+
+                if(secondaryPageList.length > 0)
+                {
+                    list.push(secondaryPageList);
+                }
+
+                if(containerItemsList.length > 0)
+                {
+                    list.push(containerItemsList);
+                }
+
+                if(imageLibraryList.length > 0)
+                {
+                    list.push(imageLibraryList);
+                }
+
+                if(documentLibraryList.length > 0)
+                {
+                    list.push(documentLibraryList);
+                }
 
                 for( var i =0; i <list.length; i++)
                 {
