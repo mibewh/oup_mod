@@ -1,0 +1,39 @@
+{
+  "type": "document-translations",
+  "config": {
+    "chrome": false,
+    "buttons": [],
+    "columns": [{
+      "title": "Translation",
+      "key": "translation"
+    }, {
+      "title": "Details",
+      "key": "details"
+    }],
+    "icon": true,
+    "checkbox": true,
+    "loader": "gitana",
+    "actions": true,
+    "selectorGroups": {
+      "multi-documents-action-selector-group": {
+        "actions": [{
+          "action": "edit-translation",
+          "order": 100
+        }, {
+          "action": "delete-translations",
+          "order": 200
+        }]
+      },
+      "sort-selector-group": {
+        "fields": [{
+          "key": "translation",
+          "title": "Translation",
+          "field": "translation"
+        }]
+      },
+      "single-document-action-selector-group": {
+        "actions": []
+      }
+    }
+  }
+}
