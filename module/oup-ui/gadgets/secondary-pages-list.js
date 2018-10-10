@@ -43,11 +43,6 @@ define(function(require, exports, module) {
                     "sort": true,
                     "sortProperty": "_system.modified_on.ms"
                 }, {
-                    "key": "status",
-                    "title": "Status",
-                    "sort": true,
-                    "sortProperty": "lifeCycle"
-                }, {
                     "key": "modifiedBy",
                     "title": "Modified By",
                     "sort": true,
@@ -146,10 +141,6 @@ define(function(require, exports, module) {
 
             if (item.key === "path") {
                 return row.scUrl;
-            }
-
-            if (item.key === "status") {
-                return row.lifeCycle;
             }
 
             if (item.key == "actions") {

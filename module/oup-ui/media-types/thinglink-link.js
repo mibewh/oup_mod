@@ -30,18 +30,17 @@ define(function (require, exports, module) {
             var el = MediaLinkBuilder.prototype.generateLink(control, template, callback);
             var mediaId = control.childrenByPropertyId["mediaId"].getValue();
 
-            var img = document.createElement('img');
-            img.src = "//cdn.thinglink.me/api/image/" + mediaId + "/1024/10/scaletowidth#tl-" + mediaId + ";";
-            img.alt = "";
-            img.style = "max-width: 100%;";
-            img.className = "alwaysThinglink";
+            el[0].className = "alwaysThinglink";
+            el.attr("src", "//cdn.thinglink.me/api/image/" + mediaId + "/1024/10/scaletowidth#tl-" + mediaId + ";");
+            el.attr("alt", "");
+            el.attr("style", "max-width: 100%;");
             
-            var div = document.createElement('div');
-            div.innerHTML = "<script async charset=\"utf-8\" src=\"//cdn.thinglink.me/jse/embed.js\"></script>";
-            
-            img.appendChild(div);
-            el[0] = img;
-            el.push(div);
+
+            var script = document.createElement('script');
+            script.src = "//cdn.thinglink.me/jse/embed.js";
+            script.charset = "utf-8";
+            script.async = "async";
+            el.push(script);
 
             callback(null, el);
         },

@@ -10,9 +10,7 @@ define(function (require, exports, module) {
          */
         getSchema: function () {
             return {
-                "data-iframe-title": {
-                    "type": "string"
-                }
+
             };
         },
 
@@ -21,11 +19,7 @@ define(function (require, exports, module) {
          */
         getOptions: function () {
             return {
-                "data-iframe-title": {
-                    "type": "text",
-                    "label": "Title",
-                    "default": ""
-                }
+
             };
         },
 
@@ -35,20 +29,19 @@ define(function (require, exports, module) {
         generateLink: function (control, template, callback) {
             var el = MediaLinkBuilder.prototype.generateLink(control, template, callback);
             var mediaId = control.childrenByPropertyId["mediaId"].getValue();
-            var iframeTitle = el[0].dataset.iframeTitle ? el[0].dataset.iframeTitle : "";
+            var dataIframeTitle = control.childrenByPropertyId["Qzzr"] && control.childrenByPropertyId["Qzzr"].getValue()["data-iframe-title"] ?
+                control.childrenByPropertyId["Qzzr"].getValue()["data-iframe-title"] : "";
 
-            var div = document.createElement('div');
-            div.className = "quizz-container";
-            div.setAttribute("data-width", "100%");
-            div.setAttribute("data-height", "auto");
-            div.setAttribute("data-iframe-title", iframeTitle);
-            div.setAttribute("data-quiz", mediaId);
-            el[0] = div;
+            el[0].className = "quizz-container";
+            el.attr("data-width", "100%");
+            el.attr("data-height", "auto");
+            el.attr("data-iframe-title", dataIframeTitle);
+            el.attr("data-quiz", mediaId);
 
-            var div2 = document.createElement('div');
-            div2.className = "quizz-script";
-            div2.innerHTML = "<script src=\"//dcc4iyjchzom0.cloudfront.net/widget/loader.js\" async></script>";
-            el.push(div2);
+            var script = document.createElement('script');
+            script.setAttribute("src", "//dcc4iyjchzom0.cloudfront.net/widget/loader.js");
+            script.async = "async";
+            el.push(script);
 
             callback(null, el);
         },

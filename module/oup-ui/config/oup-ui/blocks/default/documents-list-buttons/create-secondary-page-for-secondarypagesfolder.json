@@ -29,6 +29,9 @@
                     "remove": true
                 }
             ]
+        }, {   
+            "key": "view_rules",
+            "remove": true
         }]
     }
 }

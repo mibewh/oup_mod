@@ -13,6 +13,14 @@
                 "evaluator": "context-document-has-type",
                 "condition": "n:node"
             }
+        }, {
+            "evaluator": "not",
+            "condition":
+
+            {
+                "evaluator": "context-document-has-type",
+                "condition": "type:image0"
+            }
         }
     ],
     "config": {

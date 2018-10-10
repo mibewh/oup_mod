@@ -29,13 +29,11 @@ define(function (require, exports, module) {
         generateLink: function (control, template, callback) {
             var el = MediaLinkBuilder.prototype.generateLink(control, template, callback);
             var mediaId = control.childrenByPropertyId["mediaId"].getValue();
-            var height = control.childrenByPropertyId["Panopto"] && control.childrenByPropertyId["Panopto"].getValue()["height"] ?
-                control.childrenByPropertyId["Panopto"].getValue()["height"] : "";
 
-            el.attr("src", "https://oup.cloud.panopto.eu/Panopto/Pages/EmbeddedList.aspx?embedded=1&folderID=" + mediaId);
-            el.attr("width", "800");
-            el.attr("height", height);
-            el.attr("frameborder", "0");
+            var script = document.createElement('script');
+            script.setAttribute("type", "text/javascript");
+            script.innerHTML = "document.write(\"<scr\"+\"ipt type=\\\"text/javascript\\\" src=\\\"//www.surveygizmo.com/s3/polljs/" + mediaId + "-FO03Z66RCRN2MA8KS90KT8I9KL9IBK?cookie=\"+document.cookie.match(/sg-response-" + mediaId + "/gi)+\"\\\"></scr\"+\"ipt>\")";
+            el[0] = script;
 
             callback(null, el);
         },
@@ -44,7 +42,7 @@ define(function (require, exports, module) {
          * @override
          */
         canHandle: function (mediaType) {
-            return mediaType == "panopto";
+            return mediaType == "surveygizmo";
         }
 
     }));

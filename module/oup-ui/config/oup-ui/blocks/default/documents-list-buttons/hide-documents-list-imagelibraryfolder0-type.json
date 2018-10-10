@@ -4,14 +4,15 @@
     "config": {
         "documents-list-buttons": [{
             "key": "new",
-            "buttons": [{
-                "key": "upload",
-                "title": "upload images"
-            },
+            "buttons": [
             {
                 "key": "new_document",
                 "title": "Create an Image"
 
+            },
+            {
+                "key": "upload",
+                "remove": true
             }]
         },
         {

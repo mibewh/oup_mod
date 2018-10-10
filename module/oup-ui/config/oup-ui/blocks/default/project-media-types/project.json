@@ -3,14 +3,23 @@
     "config": {
         "project-media-types": {
             "mediatypes": [{
+                "key": "brightcove",
+                "label": "Brightcove"
+            }, {
+                "key": "youtube",
+                "label": "Youtube"
+            }, {
                 "key": "thinglink",
                 "label": "Thinglink"
-            },{
+            }, {
                 "key": "panopto",
                 "label": "Panopto"
-            },{
+            }, {
                 "key": "qzzr",
                 "label": "Qzzr"
+            }, {
+                "key": "surveygizmo",
+                "label": "Survey Gizmo"
             }]
         }
     }

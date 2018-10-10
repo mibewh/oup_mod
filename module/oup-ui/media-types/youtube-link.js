@@ -9,18 +9,14 @@ define(function (require, exports, module) {
          * @override
          */
         getSchema: function () {
-            return {
-
-            };
+            return {};
         },
 
         /**
          * @override
          */
         getOptions: function () {
-            return {
-
-            };
+            return {};
         },
 
         /**
@@ -28,14 +24,17 @@ define(function (require, exports, module) {
          */
         generateLink: function (control, template, callback) {
             var el = MediaLinkBuilder.prototype.generateLink(control, template, callback);
-            var mediaId = control.childrenByPropertyId["mediaId"].getValue();
-            var height = control.childrenByPropertyId["Panopto"] && control.childrenByPropertyId["Panopto"].getValue()["height"] ?
-                control.childrenByPropertyId["Panopto"].getValue()["height"] : "";
-
-            el.attr("src", "https://oup.cloud.panopto.eu/Panopto/Pages/EmbeddedList.aspx?embedded=1&folderID=" + mediaId);
-            el.attr("width", "800");
-            el.attr("height", height);
+            el.attr("src", "https://www.youtube.com/embed/" + control.childrenByPropertyId["mediaId"].getValue());
+            el.attr("allowfullscreen", "");
+            el.attr("webkitallowfullscreen", "");
+            el.attr("mozallowfullscreen", "");
             el.attr("frameborder", "0");
+            el.attr("allow", "encrypted-media");
+
+            var div = document.createElement('div');
+            div.className = "videoContainer";
+            div.innerHTML = el.outerHTML();
+            el[0] = div;
 
             callback(null, el);
         },
@@ -44,7 +43,7 @@ define(function (require, exports, module) {
          * @override
          */
         canHandle: function (mediaType) {
-            return mediaType == "panopto";
+            return mediaType == "youtube";
         }
 
     }));

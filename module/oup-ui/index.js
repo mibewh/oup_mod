@@ -14,6 +14,9 @@ define(function(require) {
     // new fields
     require("./fields/oup-file-picker.js");
 
+    require("./media-types/brightcove-link.js");
+    require("./media-types/youtube-link.js");
+    require("./media-types/surveygizmo-link.js");
     require("./media-types/thinglink-link.js");
     require("./media-types/panopto-link.js");
     require("./media-types/qzzr-link.js");
