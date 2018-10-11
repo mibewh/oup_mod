@@ -24,17 +24,16 @@ define(function (require, exports, module) {
          */
         generateLink: function (control, template, callback) {
             var el = MediaLinkBuilder.prototype.generateLink(control, template, callback);
-            el.attr("src", "https://www.youtube.com/embed/" + control.childrenByPropertyId["mediaId"].getValue());
-            el.attr("allowfullscreen", "");
-            el.attr("webkitallowfullscreen", "");
-            el.attr("mozallowfullscreen", "");
-            el.attr("frameborder", "0");
-            el.attr("allow", "encrypted-media");
-
-            var div = document.createElement('div');
-            div.className = "videoContainer";
-            div.innerHTML = el.outerHTML();
-            el[0] = div;
+            el[0].className = "videoContainer";
+            
+            var iframe = document.createElement('iframe');
+            iframe.setAttribute("src", "https://www.youtube.com/embed/" + control.childrenByPropertyId["mediaId"].getValue());
+            iframe.setAttribute("allowfullscreen", "");
+            iframe.setAttribute("webkitallowfullscreen", "");
+            iframe.setAttribute("mozallowfullscreen", "");
+            iframe.frameBorder = 0;
+            iframe.setAttribute("allow", "encrypted-media");
+            el[0].innerHTML = iframe.outerHTML;
 
             callback(null, el);
         },
