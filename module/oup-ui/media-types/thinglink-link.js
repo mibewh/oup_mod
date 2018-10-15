@@ -30,11 +30,10 @@ define(function (require, exports, module) {
             var el = MediaLinkBuilder.prototype.generateLink(control, template, callback);
             var mediaId = control.childrenByPropertyId["mediaId"].getValue();
 
-            el[0].className = "alwaysThinglink";
+            el.attr("class", "alwaysThinglink");
             el.attr("src", "//cdn.thinglink.me/api/image/" + mediaId + "/1024/10/scaletowidth#tl-" + mediaId + ";");
             el.attr("alt", "");
             el.attr("style", "max-width: 100%;");
-            
 
             var script = document.createElement('script');
             script.src = "//cdn.thinglink.me/jse/embed.js";

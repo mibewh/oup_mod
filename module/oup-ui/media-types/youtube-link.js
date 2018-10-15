@@ -24,18 +24,18 @@ define(function (require, exports, module) {
          */
         generateLink: function (control, template, callback) {
             var el = MediaLinkBuilder.prototype.generateLink(control, template, callback);
-            el[0].className = "videoContainer";
-            
-            var iframe = document.createElement('iframe');
-            iframe.setAttribute("src", "https://www.youtube.com/embed/" + control.childrenByPropertyId["mediaId"].getValue());
-            iframe.setAttribute("allowfullscreen", "");
-            iframe.setAttribute("webkitallowfullscreen", "");
-            iframe.setAttribute("mozallowfullscreen", "");
-            iframe.frameBorder = 0;
-            iframe.setAttribute("allow", "encrypted-media");
-            el[0].innerHTML = iframe.outerHTML;
+            el.attr("src", "https://www.youtube.com/embed/" + control.childrenByPropertyId["mediaId"].getValue());
+            el.attr("allowfullscreen", "");
+            el.attr("webkitallowfullscreen", "");
+            el.attr("mozallowfullscreen", "");
+            el.attr("frameBorder", "0");
+            el.attr("allow", "encrypted-media");
 
-            callback(null, el);
+            var wrap = $("<div/>");
+            wrap.attr("class", "videoContainer");
+            wrap.append(el);
+
+            callback(null, wrap);
         },
 
         /**

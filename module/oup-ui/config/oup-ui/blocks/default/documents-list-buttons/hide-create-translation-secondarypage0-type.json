@@ -1,11 +1,11 @@
 {
-    "evaluator": "document-has-type",
-    "condition": "type:secondarypage0",
-    "config": {
-        "document-translations-buttons": [{
-                "key": "add-translation",
-                "remove": true
-            }
-        ]
-    }
+  "evaluator": "document-has-type",
+  "condition": "type:secondarypage0",
+  "config": {
+    "document-translations-buttons": [{
+        "key": "add-translation",
+        "remove": true
+      }
+    ]
+  }
 }
