@@ -1,0 +1,25 @@
+{
+    "config": {
+        "header": {
+            "dropdowns": {
+                "help": {
+                    "key": "header/help",
+                    "title": "Help",
+                    "iconClass": "fa fa-question-circle",
+                    "items": [
+                        {
+                            "key": "header/help/custom",
+                            "title": "Custom1",
+                            "url": "https://google.com"
+                        },
+                        {
+                            "key": "header/help/custom2",
+                            "title": "Custom2",
+                            "url": "/help"
+                        }                        
+                    ]
+                }
+            }
+        }
+    }
+}

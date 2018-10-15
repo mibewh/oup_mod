@@ -32,7 +32,7 @@ define(function (require, exports, module) {
             var dataIframeTitle = control.childrenByPropertyId["Qzzr"] && control.childrenByPropertyId["Qzzr"].getValue()["data-iframe-title"] ?
                 control.childrenByPropertyId["Qzzr"].getValue()["data-iframe-title"] : "";
 
-            el[0].className = "quizz-container";
+            el.attr("class", "quizz-container");
             el.attr("data-width", "100%");
             el.attr("data-height", "auto");
             el.attr("data-iframe-title", dataIframeTitle);

@@ -82,6 +82,9 @@
             }, {
                 "key": "type:rowcontainerfordynamicwidgetsAdvanced0",
                 "title": "Row Container for Dynamic Widgets with Advanced Settings"
+            }, {
+                "key": "type:featuredarticle0",
+                "title": "Featured Article"
             }]
         }
     }

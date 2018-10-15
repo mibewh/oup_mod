@@ -1,0 +1,12 @@
+{
+  "evaluator": "uri-match",
+  "condition": "/projects/{projectId}/content",
+  "config": {
+    "content-types": {
+      "items": [{
+        "key": "type:additionalhtm0",
+        "remove": true
+      }]
+    }
+  }
+}
