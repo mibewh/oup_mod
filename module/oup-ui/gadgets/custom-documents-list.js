@@ -1,7 +1,5 @@
 define(function(require, exports, module) {
 
-    require("css!./documents-list.css");
-
     var Ratchet = require("ratchet/web");
     var DocList = require("ratchet/dynamic/doclist");
     var OneTeam = require("oneteam");
@@ -32,8 +30,6 @@ define(function(require, exports, module) {
         {
             this.base();
 
-            this.get("/projects/{projectId}/documents", this.index);
-            this.get("/projects/{projectId}/documents/browse", this.index);
             this.get("/projects/{projectId}/documents/{documentId}", this.index);
             this.get("/projects/{projectId}/documents/{documentId}/browse", this.index);
         },
@@ -420,6 +416,8 @@ define(function(require, exports, module) {
         handleRowCallback: function(el, model, table, nRow, aData, iDisplayIndex)
         {
             this.base(el, model, table, nRow, aData, iDisplayIndex);
+
+            $(el).find('.dataTables_length').hide();
 
             var row = model.rows[iDisplayIndex];
 
