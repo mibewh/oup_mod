@@ -10,6 +10,7 @@ define(function(require) {
     require("./gadgets/content-instances-for-oup-editors-team.js");
     require("./gadgets/journal-site-folder.js");
     require("./gadgets/secondary-pages-list.js");
+    require("./gadgets/custom-documents-list.js");
     
     // new fields
     require("./fields/oup-file-picker.js");
