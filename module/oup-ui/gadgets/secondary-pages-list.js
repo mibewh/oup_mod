@@ -101,33 +101,69 @@ define(function(require, exports, module) {
         {
             var self = this;
 
-            /** \\Include the same actions as the document-list **/
-
             var thing = Chain(row);
-            var itemActions = OneTeam.configEvalArray(thing, "documents-list-item-actions", self);
+
+            // evaluate the config space against the current row so that per-row action buttons customize per document
+            var itemActions = OneTeam.configEvalArray(thing, "documents-list-item-actions", self, null, null, true);
+
             if (itemActions && itemActions.length > 0)
             {
                 for (var z = 0; z < itemActions.length; z++)
                 {
-                    //to include the quick links just remove the following check
                     if(itemActions[z].key != "view-json" && itemActions[z].key != "locked")
                     {
                         selectorGroup.actions.push(itemActions[z]);
                     }
                 }
             }
+
+            // TODO: can't do this yet, need ACLs for every document?
+            //selectorGroup.actions = self.filterAccessRights(self, thing, model.buttons);
         },
 
+        handleRowCallback: function(el, model, table, nRow, aData, iDisplayIndex)
+        {
+            this.base(el, model, table, nRow, aData, iDisplayIndex);
+
+            $(el).find('.list-row-info-summary-block').hide();
+
+            var row = model.rows[iDisplayIndex];
+
+            if (model.maxDepth && (typeof(row._depth) !== "undefined"))
+            {
+                var spacerWidth = 80;
+                var spacerWidth = 80;
+
+                if (row._depth > 0)
+                {
+                    var leftMarginPx = row._depth * spacerWidth;
+
+                    $(".list-icon-column", nRow).find(".list-icon-hierarchy-spacer").remove();
+                    $(".list-icon-column", nRow).prepend("<span class='list-icon-hierarchy-spacer' style='padding-left: " + leftMarginPx + "px'></span>");
+
+                    $(".list-icon-column").css("text-align", "left");
+                }
+
+                var pullPx = (model.maxDepth - row._depth) * spacerWidth;
+                $($(nRow).children()[2]).css("display", "block");
+                $($(nRow).children()[2]).css("margin-left", "-" + pullPx + "px");
+
+            }
+        },
+
+
         columnValue: function(row, item, model, context) {
+
             var self = this;
+
+            var project = self.observable("project").get();
 
             var value = "";
 
             if (item.key === "pageName") {
-                var project = self.observable("project").get();
-                value += "<a href='#/projects/" + project._doc + "/documents/" + row._doc + "'>";
-                value += row.title;
-                value += "</a>";
+
+                value = model.renderTemplate(row);
+
                 return value;
             }
 
@@ -145,7 +181,7 @@ define(function(require, exports, module) {
 
             if (item.key == "actions") {
 
-                var id = "list-button-single-document-select-" + row.id;
+                var id = "list-button-single-document-select-" + row._doc;
 
                 // action drop down
                 var MODAL_TEMPLATE = ' \
