@@ -1,0 +1,6 @@
+{
+    "title": "My Help Page",
+    "uri": "/help",
+    "extends": "project/_project",
+    "template": "mytemplate"
+}

@@ -1,0 +1,8 @@
+{
+    "type": "help",
+    "config": {
+        "chrome": {
+            "title": "My Help Page"
+        }
+    }
+}
