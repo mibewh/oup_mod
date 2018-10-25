@@ -21,6 +21,8 @@ define(function(require) {
     require("./media-types/thinglink-link.js");
     require("./media-types/panopto-link.js");
     require("./media-types/qzzr-link.js");
+
+    require("./gadgets/help/help.js");
     
     // use this to globally control the position of helper text
     Alpaca.defaultHelpersPosition = "above";  

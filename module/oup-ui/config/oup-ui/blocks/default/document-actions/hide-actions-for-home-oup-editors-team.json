@@ -1,0 +1,74 @@
+{
+    "evaluator": "context-document-has-type",
+    "condition": "n:root",
+    "config": {
+        "document-actions": [{
+            "key": "add-feature",
+            "remove": true
+        },
+        {
+            "key": "change-qname",
+            "remove": true
+        },
+        {
+            "key": "change-type",
+            "remove": true
+        },
+        {
+            "key": "copy-to",
+            "remove": true
+        },
+        {
+            "key": "disable-inherit-propagated-authorities",
+            "remove": true
+        },
+        {
+            "key": "enable-inherit-propagated-authorities",
+            "remove": true
+        },
+        {
+            "key": "view-in-api",
+            "remove": true
+        },
+        {
+            "key": "view-in-admin-console",
+            "remove": true
+        },
+        {
+            "key": "upload-attachment",
+            "remove": true
+        },
+        {
+            "key": "touch-document",
+            "remove": true
+        },
+        {
+            "key": "delete-document",
+            "remove": true
+        },
+        {
+            "key": "start-workflow",
+            "remove": true
+        },
+        {
+            "key": "move-to",
+            "remove": true
+        },
+        {
+            "key": "add-to-favorites",
+            "remove": true
+        },
+        {
+            "key": "add-translated-document",
+            "remove": true
+        },
+        {
+            "key": "remove-multilingual-feature-from-document",
+            "remove": true
+        },
+        {
+            "key": "set-locale",
+            "remove": true
+        }]
+    }
+}
