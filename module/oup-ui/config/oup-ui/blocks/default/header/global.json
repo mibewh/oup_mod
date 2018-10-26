@@ -18,6 +18,27 @@
                             "title": "Custom2",
                             "url": "/help"
                         }
+                        //uncomment the items you wish to hide from the Help dropdown menu
+//                        {
+//                            "key": "header/help/read-documentation",
+//                            "remove" : true
+//                        },
+//                        {
+//                            "key": "header/help/watch-video",
+//                            "remove" : true
+//                        },
+//                        {
+//                            "key": "header/help/browse-developer-guides",
+//                            "remove" : true
+//                        },
+//                        {
+//                            "key": "header/help/manage-subscription",
+//                            "remove" : true
+//                        },
+//                        {
+//                            "key": "header/help/contact-support",
+//                            "remove" : true
+//                        }
                     ]
                 }
             }

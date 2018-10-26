@@ -1,0 +1,30 @@
+{
+  "evaluator": "and",
+  "condition": [
+    {
+      "evaluator": "current-user-has-team",
+      "condition": "academic-editors"
+    },
+    {
+      "evaluator": "context-definition",
+      "condition": true
+    }
+    ],
+  "config": {
+    "definition-subcontext": {
+      "items": [{
+        "key": "definition",
+        "title": "Definition",
+        "header": true,
+        "order": 1000,
+        "items": [{
+          "key": "definition/forms",
+          "remove": true
+        }, {
+          "key": "definition/json",
+          "remove": true
+        }]
+      }]
+    }
+  }
+}
