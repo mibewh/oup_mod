@@ -10,35 +10,40 @@
                     "iconClass": "fa fa-question-circle",
                     "items": [{
                             "key": "header/help/custom",
-                            "title": "Custom1",
-                            "url": "https://google.com"
+                            "title": "User guide",
+                            "url": "https://share.oup.com/gab/portfolio/standalone/narnia-cms-replacement/Shared%20Documents/Change%20Management/Training/CCMS%20User%20Guide.pdf"
                         },
                         {
                             "key": "header/help/custom2",
-                            "title": "Custom2",
-                            "url": "/help"
-                        }
-                        //uncomment the items you wish to hide from the Help dropdown menu
-//                        {
-//                            "key": "header/help/read-documentation",
-//                            "remove" : true
-//                        },
-//                        {
-//                            "key": "header/help/watch-video",
-//                            "remove" : true
-//                        },
-//                        {
-//                            "key": "header/help/browse-developer-guides",
-//                            "remove" : true
-//                        },
-//                        {
-//                            "key": "header/help/manage-subscription",
-//                            "remove" : true
-//                        },
-//                        {
-//                            "key": "header/help/contact-support",
-//                            "remove" : true
-//                        }
+                            "title": "Governance guidelines",
+                            "url": "http://narnia-guidelines:!narniaOUP2016@gabdesign.oup.com/narnia-guidelines/index.php"
+                        },
+                        {
+                            "key": "header/help/custom3",
+                            "title": "Contact support",
+                            "url": "mailto:ben.coney@oup.com"
+                        },
+                        
+                       {
+                           "key": "header/help/read-documentation",
+                           "remove" : true
+                       },
+                       {
+                           "key": "header/help/watch-video",
+                           "remove" : true
+                       },
+                       {
+                           "key": "header/help/browse-developer-guides",
+                           "remove" : true
+                       },
+                       {
+                           "key": "header/help/manage-subscription",
+                           "remove" : true
+                       },
+                       {
+                           "key": "header/help/contact-support",
+                           "remove" : true
+                       }
                     ]
                 }
             }
