@@ -1,0 +1,30 @@
+{
+  "evaluator": "and",
+  "condition": [
+    {
+      "evaluator": "current-user-has-team",
+      "condition": "academic-editors"
+    },
+    {
+      "evaluator": "context-project"
+    }
+  ],
+  "config": {
+    "project-mypreferences-context": {
+      "items": [{
+        "key": "project/mypreferences/ui",
+        "title": "Customize UI",
+        "order": 30000,
+        "header": true,
+        "allowAuthority": [
+          "collaborator",
+          "manager"
+        ],
+        "items": [{
+          "key": "project/ui/menus",
+          "remove": true
+        }]
+      }]
+    }
+  }
+}
