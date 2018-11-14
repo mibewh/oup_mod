@@ -1,11 +1,11 @@
 define(function(require, exports, module) {
 
     var Ratchet = require("ratchet/web");
-    var DocList = require("ratchet/dynamic/doclist");
+    var ContentInstancesList = require("app/gadgets/project/content/content-instances");
     var OneTeam = require("oneteam");
     var TemplateHelperFactory = require("template-helper");
 
-    return Ratchet.GadgetRegistry.register("content-instances-for-oup-editors-team", DocList.extend({
+    return Ratchet.GadgetRegistry.register("content-instances-for-oup-editors-team", ContentInstancesList.extend({
 
         configureDefault: function()
         {
@@ -253,26 +253,6 @@ define(function(require, exports, module) {
             }
 
             return value;
-        },
-
-        populateSingleDocumentActions: function(row, item, model, context, selectorGroup)
-        {
-            var self = this;
-
-            var thing = Chain(row);
-
-            // evaluate the config space against the current row so that per-row action buttons customize per document
-            var itemActions = OneTeam.configEvalArray(thing, "content-instances-list-item-actions", self);
-            if (itemActions && itemActions.length > 0)
-            {
-                for (var z = 0; z < itemActions.length; z++)
-                {
-                    selectorGroup.actions.push(itemActions[z]);
-                }
-            }
-
-            // TODO: can't do this yet, need ACLs for every document?
-            //selectorGroup.actions = self.filterAccessRights(self, thing, model.buttons);
         }
 
     }));

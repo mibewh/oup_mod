@@ -24,7 +24,15 @@
       "center": {
         "type": "content-instances-for-oup-editors-team"
       }
-    }
+    },
+
+    // hide create-button from oup-editor
+    "content-instances-buttons": [
+      {
+        "key": "create-content",
+        "remove": true
+      }
+    ]
 
   }
 }
