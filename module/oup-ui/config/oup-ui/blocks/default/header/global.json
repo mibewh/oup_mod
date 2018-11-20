@@ -1,6 +1,12 @@
 {
-    "evaluator": "current-user-has-team",
-    "condition": "academic-editors",
+    "evaluator": "and",
+    "condition": [{
+        "evaluator": "current-user-has-team",
+        "condition": "academic-editors"
+    }, {
+        "evaluator": "uri-starts-with",
+        "condition": "/projects/cffca2fcbeff5a6bd501"  
+    }],
     "config": {
         "header": {
             "dropdowns": {

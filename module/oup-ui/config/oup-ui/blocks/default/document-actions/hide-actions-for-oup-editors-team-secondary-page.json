@@ -6,6 +6,9 @@
     }, {
         "evaluator": "context-document-has-type",
         "condition": "type:genericform"
+    },{
+        "evaluator": "context-document-has-type",
+        "condition": "type:journalhomepage0"
     }],
     "config": {
       "document-actions": [
@@ -15,6 +18,14 @@
         },
         {
             "key": "start-workflow",
+            "remove": true
+        },
+        {
+            "key": "delete-document",
+            "remove": true
+        },
+        {
+            "key": "copy-to",
             "remove": true
         }
     ]
