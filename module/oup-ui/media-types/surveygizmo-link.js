@@ -29,9 +29,13 @@ define(function (require, exports, module) {
         generateLink: function (control, template, callback) {
             var el = MediaLinkBuilder.prototype.generateLink(control, template, callback);
             var mediaId = control.childrenByPropertyId["mediaId"].getValue();
+            var height = control.childrenByPropertyId["SurveyGizmo Reader Poll"] && control.childrenByPropertyId["SurveyGizmo Reader Poll"].getValue()["height"] ?
+                control.childrenByPropertyId["SurveyGizmo Reader Poll"].getValue()["height"] : "";
 
-            el.attr("type", "text/javascript");
-            el.attr("innerHTML", "document.write(\"<scr\"+\"ipt type=\\\"text/javascript\\\" src=\\\"//www.surveygizmo.com/s3/polljs/" + mediaId + "-FO03Z66RCRN2MA8KS90KT8I9KL9IBK?cookie=\"+document.cookie.match(/sg-response-" + mediaId + "/gi)+\"\\\"></scr\"+\"ipt>\")");
+            el.attr("src", "https://www.surveygizmo.com/s3/" + mediaId);
+            el.attr("width", "550");
+            el.attr("height", height);
+            el.attr("frameborder", "0");
 
             callback(null, el);
         },

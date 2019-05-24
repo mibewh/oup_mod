@@ -28,6 +28,10 @@
             "remove": true
         },
         {
+            "action": "deploy-nodes",
+            "remove": true
+        },
+        {
             "action": "print",
             "remove": true
         },

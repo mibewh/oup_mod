@@ -5,7 +5,7 @@
         "condition": "academic-editors"
     }, {
         "evaluator": "uri-starts-with",
-        "condition": "/projects/cffca2fcbeff5a6bd501"  
+        "condition": "/projects/{projectId}"  
     }],
     "config": {
         "header": {
@@ -15,21 +15,29 @@
                     "title": "Help",
                     "iconClass": "fa fa-question-circle",
                     "items": [{
-                            "key": "header/help/custom",
+                            "key": "header/help/custom1",
                             "title": "User guide",
-                            "url": "https://share.oup.com/gab/portfolio/standalone/narnia-cms-replacement/Shared%20Documents/Change%20Management/Training/CCMS%20User%20Guide.pdf"
+                            "url": "https://share.oup.com/gab/portfolio/standalone/narnia-cms-replacement/Shared%20Documents/Change%20Management/Training/CCMS%20User%20Guide.pdf",
+                            "order": 1
                         },
                         {
                             "key": "header/help/custom2",
-                            "title": "Governance guidelines",
-                            "url": "http://narnia-guidelines:!narniaOUP2016@gabdesign.oup.com/narnia-guidelines/index.php"
+                            "title": "UX governance",
+                            "url": "http://gabdesign.oup.com/uxgovernance/",
+                            "order": 2
+                        },
+                        {
+                            "key": "header/help/custom4",
+                            "title": "Additional resources",
+                            "url": "https://share.oup.com/gab/marketing/SitePages/CloudCMS.aspx",
+                            "order": 3
                         },
                         {
                             "key": "header/help/custom3",
                             "title": "Contact support",
-                            "url": "mailto:ben.coney@oup.com"
+                            "url": "http://wonderdesk.uk.oup.com/cgi-bin/wonderdesk.cgi",
+                            "order": 4
                         },
-                        
                        {
                            "key": "header/help/read-documentation",
                            "remove" : true

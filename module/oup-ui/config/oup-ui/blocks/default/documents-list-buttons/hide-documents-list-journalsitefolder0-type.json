@@ -13,6 +13,11 @@
             }, {
                 "key": "upload",
                 "remove": true
+            },{
+                "key": "upload-contentPage",
+                "title": "Upload Content",
+                "iconClass": "fa fa-book",
+                "action": "upload-content-page"
             }]
         },
         {

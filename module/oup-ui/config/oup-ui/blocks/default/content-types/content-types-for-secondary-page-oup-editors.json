@@ -11,65 +11,47 @@
         "content-types": {
             "remove" : true,
             "items": [{
-                "key": "type:connectcontentblock0",
-                "title": "Connect Content Block"
-            }, {
-                "key": "type:connectRightNav",
-                "title": "Connect Right Nav Container"
-            }, {
-                "key": "type:connectrowcontainer0",
-                "title": "Connect Row Container"
-            }, {
-                "key": "type:connectslot",
-                "title": "Connect Slot"
-            }, {
                 "key": "type:contentblock0",
-                "title": "Editable Content Block"
+                "title": "Editable Content Panel"
             }, {
                 "key": "custom:heropanel0",
-                "title": "Hero Panel"
+                "title": "Row for Hero Panels"
             }, {
                 "key": "type:listingcontaine0",
                 "title": "Listing Container"
             }, {
                 "key": "type:megarowcontaine0",
-                "title": "Mega Row Container"
+                "title": "Mega Row"
             }, {
                 "key": "type:newsitem0",
                 "title": "News Items"
             }, {
                 "key": "type:podcastepisodeblock0",
-                "title": "Podcast Episode Block"
+                "title": "Podcast Episode"
             }, {
                 "key": "type:productcarouselrowcont",
-                "title": "Product Carousel Row Container"
+                "title": "Carousel"
             }, {
                 "key": "type:relatedtitlescontentblock0",
                 "title": "Related Titles Content Block"
             }, {
                 "key": "type:relatedtitlesrowcontainer0",
-                "title": "Related Titles Row Container"
+                "title": "Row for Related Titles"
             }, {
                 "key": "type:rowcontainerfordynamicwidgets0",
-                "title": "Row Container for Dynamic Widgets"
+                "title": "Row for Simple Automated Content Listings"
             }, {
                 "key": "type:rowcontaine0",
-                "title": "Row Container for Editable Blocks"
+                "title": "Row for Editable Panels"
             }, {
                 "key": "type:rssRightNav",
-                "title": "RSS Right Nav"
-            }, {
-                "key": "type:singlecolumnrowcontaine0",
-                "title": "Single Column Row Container"
+                "title": "Blog Feed"
             }, {
                 "key": "type:twittercontentbloc0",
                 "title": "Twitter Content Block"
             }, {
                 "key": "type:usefullink0",
                 "title": "Useful Links"
-            }, {
-                "key": "type:usefullinksrightnavcontaine0",
-                "title": "Useful Links Right Nav Container"
             }, {
                 "key": "type:browsecontrol0",
                 "title": "Browse Controls"
@@ -81,11 +63,18 @@
                 "title": "Contacts Container"
             }, {
                 "key": "type:rowcontainerfordynamicwidgetsAdvanced0",
-                "title": "Row Container for Dynamic Widgets with Advanced Settings"
+                "title": "Row for Complex Automated Content Listings"
             }, {
                 "key": "type:featuredarticle0",
-                "title": "Featured Article"
+                "title": "Journal Article"
+            }, {
+                "key": "type:additionalhtm0",
+                "title": "Secondary Page WYSIWYG"
             }]
-        }
+        },
+        "new-folder-types": [{
+            "qname": "type:containeritemsfolder0",
+            "title": "Container Items Folder"
+        }]
     }
 }

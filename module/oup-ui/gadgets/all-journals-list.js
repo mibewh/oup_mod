@@ -4,6 +4,7 @@ define(function(require, exports, module) {
     var Ratchet = require("ratchet/web");
     var DocumentsList = require("app/gadgets/project/documents/documents-list");
     var OneTeam = require("oneteam");
+    var Actions = require("ratchet/actions");
 
     return Ratchet.GadgetRegistry.register("all-journals-list", DocumentsList.extend({
 
@@ -41,11 +42,6 @@ define(function(require, exports, module) {
                     "sort": true,
                     "sortProperty": "siteRouteName"
                 }, {
-                    "key": "status",
-                    "title": "Status",
-                    "sort": true,
-                    "sortProperty": "sitePublishStatus"
-                }, {
                     "key": "modifiedOn",
                     "title": "Last Modified On",
                     "sort": true,
@@ -53,7 +49,7 @@ define(function(require, exports, module) {
                 }],
                 "loader": "gitana",
                 "checkbox": true,
-                "actions": false,
+                "actions": true,
                 "icon": false
             });
         },
@@ -64,6 +60,30 @@ define(function(require, exports, module) {
                 "plural": "journals",
                 "singular": "journal"
             }
+        },
+
+        populateSingleDocumentActions: function(row, item, model, context, selectorGroup)
+        {
+            var self = this;
+
+            var thing = Chain(row);
+
+            // evaluate the config space against the current row so that per-row action buttons customize per document
+            var itemActions = OneTeam.configEvalArray(thing, "documents-list-item-actions", self, null, null, true);
+
+            if (itemActions && itemActions.length > 0)
+            {
+                for (var z = 0; z < itemActions.length; z++)
+                {
+                    if(itemActions[z].key != "view-json" && itemActions[z].key != "locked" && itemActions[z].key != "edit-document")
+                    {
+                        selectorGroup.actions.push(itemActions[z]);
+                    }
+                }
+            }
+
+            // TODO: can't do this yet, need ACLs for every document?
+            //selectorGroup.actions = self.filterAccessRights(self, thing, model.buttons);
         },
 
         afterSwap: function(el, model, context, callback)
@@ -129,6 +149,10 @@ define(function(require, exports, module) {
 
         columnValue: function(row, item, model, context)
         {
+
+            var self = this;
+
+            
             var value = "";
             if (item.key === "siteSortname") {
                 var project = this.observable("project").get();
@@ -150,43 +174,101 @@ define(function(require, exports, module) {
                 return row.siteRouteName;
             }
 
-            if (item.key === "status") {
-                return row.sitePublishStatus;
-            }
-
             if (item.key === "modifiedOn") {
                 return row.getSystemMetadata().getModifiedOn().getTimestamp();
             }
 
-            return value;
-        },
+            if (item.key == "actions") {
 
-        populateSingleDocumentActions: function(row, item, model, context, selectorGroup)
-        {
-            var self = this;
+                var id = "list-button-single-document-select-" + row._doc;
 
-            /** Include the same actions as the document-list **/
-            /*
-            var thing = Chain(row);
-            var itemActions = OneTeam.configEvalArray(thing, "documents-list-item-actions", self);
-            if (itemActions && itemActions.length > 0)
-            {
-                for (var z = 0; z < itemActions.length; z++)
-                {
-                    selectorGroup.actions.push(itemActions[z]);
+                // action drop down
+                var MODAL_TEMPLATE = ' \
+                    <div class="single-document-action-holder">\
+                        <ul role="menu" aria-labelledby="' + id + '"> \
+                        </ul> \
+                    </div> \
+                ';
+
+                var template = $(MODAL_TEMPLATE);
+
+                // load actions from the "single-document-action-selector-group" configuration
+                var selectorGroup = model["selectorGroups"]["single-document-action-selector-group"];
+
+                if (!selectorGroup) {
+                    selectorGroup = {};
                 }
-            }
-            */
+                if (!selectorGroup.actions) {
+                    selectorGroup.actions = [];
+                }
+                selectorGroup = JSON.parse(JSON.stringify(selectorGroup));
+                self.populateSingleDocumentActions(row, item, model, context, selectorGroup);
 
-            /** OR... override completely... */
-            selectorGroup.actions.length = 0; // clears the array
-            selectorGroup.actions.push({
-                "key": "edit-document",
-                "link": "/#/projects/{{project._doc}}/documents/{{document._doc}}/properties",
-                "iconClass": "fa fa-pencil",
-                "order": 1000
-            });
+                $.each(selectorGroup.actions, function(index, selectorGroupItem) {
+
+                    var link = selectorGroupItem.link;
+                    var actionId = selectorGroupItem.action;
+                    var iconClass = selectorGroupItem.iconClass;
+                    //var order = selectorGroupItem.order;
+
+                    var id = row.id;
+                    if (!id && row._doc) {
+                        id = row._doc;
+                    }
+                    if (!id && row.getId) {
+                        id = row.getId();
+                    }
+
+                    var html = null;
+
+                    if (link)
+                    {
+                        if (window.Handlebars)
+                        {
+                            var linkModel = {
+                                "document": row,
+                                "project": project
+                            };
+
+                            var templateFunction = Handlebars.compile(link);
+                            link = templateFunction(linkModel);
+                        }
+
+                        html = "<a href='" + link + "' list-row-id='" + id + "'>";
+                        html += "<i class='action-icon " + iconClass + "'></i>";
+                        html += "</a>";
+                    }
+                    else if (actionId)
+                    {
+                        // retrieve the action configuration
+                        var actionConfig = Actions.config(actionId);
+                        if (!actionConfig)
+                        {
+                            // skip this one
+                            Ratchet.logWarn("The action: " + actionId + " could not be found in actions config for selector group: single-document-action-selector-group");
+                        }
+                        else
+                        {
+                            html = "<a href='#' class='list-button-action list-button-action-" + actionId + "' list-action-id='" + actionId + "' list-row-id='" + id + "'>";
+                            html += "<i class='action-icon " + iconClass + "'></i>";
+                            html += "</a>";
+                        }
+                    }
+
+                    if (html)
+                    {
+                        $(template).find("ul").append("<li>" + html + "</li>");
+                    }
+
+                });
+
+                return $(template).outerHTML();
+            }
+
+            return value;
         }
+
+        
 
     }));
 

@@ -1,9 +1,12 @@
 define(function(require) {
 
     // Instanciate Actions
+    require("./actions/documents/new_folder.js");
+    require("./actions/attachments/add-attachment.js");
     require("./actions/create-journal/create-secondaryPage.js");
     require("./actions/create-journal/edit-secondaryPage.js");
     require("./actions/create-journal/delete-secondaryPage.js");
+    require("./actions/create-journal/upload-content-page.js");
 
     // new pages
     require("./gadgets/all-journals-list.js");

@@ -15,12 +15,9 @@
                 "title": "Node"
             }]
         },
-        "folder-types": { 
-            "remove" : true,
-            "items": [{
-                "key": "n:node",
-                "title": "Node"
-            }]
-        }
+        "new-folder-types": [{
+            "qname": "type:documentlibraryfolder0",
+            "title": "Document Library Folder"
+        }]
     }
 }

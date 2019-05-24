@@ -103,7 +103,7 @@ define(function(require, exports, module) {
 
             this.base(el, model, function() {
 
-                TemplateHelperFactory.create(self, "contenttypes-page", function(err, renderTemplate) {
+                TemplateHelperFactory.create(self, "content-instances", function(err, renderTemplate) {
 
                     model.renderTemplate = renderTemplate;
 

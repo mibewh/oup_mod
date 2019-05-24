@@ -20,6 +20,14 @@
             "remove": true
         },
         {
+            "action": "delete_documents",
+            "remove": true
+        },
+        {
+            "action": "deploy-nodes",
+            "remove": true
+        },
+        {
             "action": "export-download",
             "remove": true
         },

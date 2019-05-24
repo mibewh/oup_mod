@@ -1,7 +1,6 @@
 {
   "evaluator": "and",
-  "condition": [
-    {
+  "condition": [{
       "evaluator": "current-user-has-team",
       "condition": "academic-editors"
     },
@@ -9,7 +8,7 @@
       "evaluator": "context-definition",
       "condition": true
     }
-    ],
+  ],
   "config": {
     "definition-subcontext": {
       "items": [{
@@ -22,6 +21,27 @@
           "remove": true
         }, {
           "key": "definition/json",
+          "remove": true
+        }, {
+          "key": "definition/builder",
+          "remove": true
+        }, {
+          "key": "definition/edit",
+          "remove": true
+        }, {
+          "key": "definition/authorities",
+          "remove": true
+        }, {
+          "key": "definition/defaults",
+          "remove": true
+        }, {
+          "key": "definition/paths",
+          "remove": true
+        }, {
+          "key": "definition/preview",
+          "remove": true
+        }, {
+          "key": "definition/validate",
           "remove": true
         }]
       }]

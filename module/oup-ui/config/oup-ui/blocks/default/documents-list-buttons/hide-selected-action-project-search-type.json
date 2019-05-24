@@ -1,0 +1,23 @@
+{
+    "evaluator": "uri-starts-with",
+    "condition": "/projects/{projectId}/search",
+    "config": {
+        "project-search-list-selected-actions": [{
+                "action": "delete_documents",
+                "remove": true
+            },
+            {
+                "action": "print",
+                "remove": true
+            },
+            {
+                "action": "view-json",
+                "remove": true
+            },
+            {
+                "action": "export-document",
+                "remove": true
+            }
+        ]
+    }
+}

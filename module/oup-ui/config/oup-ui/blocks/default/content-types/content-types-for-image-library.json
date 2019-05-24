@@ -14,6 +14,10 @@
                 "key": "type:image0",
                 "title": "Image"
             }]
-        }
+        },
+        "new-folder-types": [{
+            "qname": "type:imagelibraryfolder0",
+            "title": "Image Library Folder"
+        }]
     }
 }

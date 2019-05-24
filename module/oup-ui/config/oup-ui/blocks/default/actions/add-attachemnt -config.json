@@ -1,0 +1,10 @@
+{
+    "config": {
+        "actions": {
+            "add-attachment": {
+                "idReadonly": true,
+                "helperText": ""
+            }
+        }
+    }
+}

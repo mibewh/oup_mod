@@ -1,15 +1,24 @@
-{
-    "evaluator": "or",
-    "condition": [{
-        "evaluator": "context-document-has-type",
-        "condition": "type:secondarypage0"
-    }, {
-        "evaluator": "context-document-has-type",
-        "condition": "type:genericform"
-    },{
-        "evaluator": "context-document-has-type",
-        "condition": "type:journalhomepage0"
-    }],
+{   "evaluator": "and",
+    "condition":[{
+            "evaluator": "or",
+            "condition": [{
+                        "evaluator": "context-document-has-type",
+                        "condition": "type:secondarypage0"
+                    }, 
+                    {
+                        "evaluator": "context-document-has-type",
+                        "condition": "type:genericform"
+                    },
+                    {
+                        "evaluator": "context-document-has-type",
+                        "condition": "type:journalhomepage0"
+                    }]
+                },
+                {
+                    "evaluator": "current-user-has-team",
+                    "condition": "academic-editors"
+                }
+    ],
     "config": {
       "document-actions": [
         {

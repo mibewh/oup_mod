@@ -23,6 +23,10 @@
                 "remove": true
             },
             {
+                "action": "deploy-nodes",
+                "remove": true
+            },
+            {
                 "action": "export-email",
                 "remove": true
             },

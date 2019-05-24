@@ -247,7 +247,7 @@ define(function(require, exports, module) {
                             }
                         }
 
-                        TemplateHelperFactory.create(self, "documents-page", function(err, renderTemplate) {
+                        TemplateHelperFactory.create(self, "documents-list", function(err, renderTemplate) {
 
 
                             model.renderTemplate = renderTemplate;
