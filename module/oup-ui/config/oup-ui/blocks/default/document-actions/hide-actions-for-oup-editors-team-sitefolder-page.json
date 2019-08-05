@@ -2,7 +2,7 @@
     "evaluator": "and",
     "condition": [{
             "evaluator": "context-document-has-type",
-            "condition": "type:secondarypage0"
+            "condition": "type:journalsitefolder0"
         },
         {
             "evaluator": "current-user-has-team",
@@ -11,22 +11,6 @@
     ],
     "config": {
         "document-actions": [{
-                "key": "move-to",
-                "remove": true
-            },
-            {
-                "key": "start-workflow",
-                "remove": true
-            },
-            {
-                "key": "delete-document",
-                "remove": true
-            },
-            {
-                "key": "copy-to",
-                "remove": true
-            },
-            {
                 "key": "add-feature",
                 "remove": true
             },
@@ -64,6 +48,26 @@
             },
             {
                 "key": "start-workflow",
+                "remove": true
+            }, 
+            {
+                "key": "copy-to",
+                "remove": true
+            },
+            {
+                "key": "add-multilingual-feature-to-document",
+                "remove": true
+            },
+            {
+                "key": "move-to",
+                "remove": true
+            },
+            {
+                "key": "remove-locale",
+                "remove": true
+            },
+            {
+                "key": "set-locale",
                 "remove": true
             },
             {

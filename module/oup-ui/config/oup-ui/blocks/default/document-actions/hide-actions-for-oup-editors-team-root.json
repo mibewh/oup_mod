@@ -1,6 +1,14 @@
 {
-    "evaluator": "context-document-has-type",
-    "condition": "n:root",
+    "evaluator": "and",
+    "condition": [{
+            "evaluator": "context-document-has-type",
+            "condition": "n:root"
+        },
+        {
+            "evaluator": "current-user-has-team",
+            "condition": "academic-editors"
+        }
+    ],
     "config": {
         "document-actions": [{
             "key": "add-feature",
@@ -64,6 +72,10 @@
         },
         {
             "key": "remove-multilingual-feature-from-document",
+            "remove": true
+        },
+        {
+            "key": "remove-locale",
             "remove": true
         },
         {

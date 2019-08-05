@@ -18,7 +18,7 @@
                 "title": "Row for Hero Panels"
             }, {
                 "key": "type:listingcontaine0",
-                "title": "Listing Container"
+                "title": "Complex Manual Listing for Collection"
             }, {
                 "key": "type:megarowcontaine0",
                 "title": "Mega Row"
@@ -63,13 +63,19 @@
                 "title": "Contacts Container"
             }, {
                 "key": "type:rowcontainerfordynamicwidgetsAdvanced0",
-                "title": "Row for Complex Automated Content Listings"
+                "title": "Row for Complex Content Listings"
             }, {
                 "key": "type:featuredarticle0",
                 "title": "Journal Article"
             }, {
                 "key": "type:additionalhtm0",
                 "title": "Secondary Page WYSIWYG"
+            }, {
+                "key": "type:videoitem",
+                "title": "Video Item"
+            }, {
+                "key": "type:complexmanuallistingforhomepage0",
+                "title": "Complex Manual Listing for Home Page"
             }]
         },
         "new-folder-types": [{

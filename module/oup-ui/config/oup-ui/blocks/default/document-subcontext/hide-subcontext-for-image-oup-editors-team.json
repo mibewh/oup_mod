@@ -1,11 +1,8 @@
 {
     "evaluator": "and",
     "condition": [{
-            "evaluator": "not",
-            "condition": {
-                "evaluator": "context-document-has-type",
-                "condition": "type:image0"
-            }
+            "evaluator": "context-document-has-type",
+            "condition": "type:image0"
         },
         {
             "evaluator": "current-user-has-team",
@@ -50,10 +47,6 @@
                     },
                     {
                         "key": "document/deployments",
-                        "remove": true
-                    },
-                    {
-                        "key": "document/editor",
                         "remove": true
                     }
                 ]

@@ -1,11 +1,13 @@
 {
+    "evaluator": "context-document-has-type",
+    "condition": "type:secondarypage0",
     "config": {
         "document-actions": [{
             "key": "set-locale",
             "title": "Set Language"
         }, {
             "key": "remove-locale",
-            "title": "Remove Language"              
+            "title": "Remove Language"
         }]
     }
 }
