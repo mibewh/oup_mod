@@ -9,8 +9,9 @@ define(function(require, exports, module) {
         {
             var self = this;
 
-            if (!pagination) { pagination = {}; }
-            pagination.limit = 999999;
+            if (!pagination) { 
+                pagination = {}; 
+            }
 
             self.base(context, model, searchTerm, query, pagination, callback);
         },

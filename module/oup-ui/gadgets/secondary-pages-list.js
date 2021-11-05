@@ -75,26 +75,34 @@ define(function(require, exports, module) {
         {
             var self = this;
 
-            if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
+
+            if (this.searchState() === "children")
             {
-                query = OneTeam.searchQuery(searchTerm, ["title"]);
+                if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
+                {
+                    query = OneTeam.searchQuery(searchTerm, ["title"]);
+                }
+    
+                if (!query)
+                {
+                    query = {};
+                }
+                
+                query._type = {"$in":["type:secondarypage0","type:genericform"]};
+    
+                pagination.paths = true;
+    
+                var folder = self.observable("document").get();            
+                Chain(folder).queryRelatives(query, {
+                    "type": "a:child"
+                }, pagination).then(function() {
+                    callback(this);
+                });            
             }
-
-            if (!query)
+            else
             {
-                query = {};
+                this.base(context, model, searchTerm, query, pagination, callback)
             }
-            
-            query._type = {"$in":["type:secondarypage0","type:genericform"]};
-
-            pagination.paths = true;
-
-             var folder = self.observable("document").get();            
-             Chain(folder).queryRelatives(query, {
-                 "type": "a:child"
-             }, pagination).then(function() {
-                 callback(this);
-             });            
         },
 
         populateSingleDocumentActions: function(row, item, model, context, selectorGroup)

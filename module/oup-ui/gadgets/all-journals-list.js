@@ -103,43 +103,49 @@ define(function(require, exports, module) {
         {
             var self = this;
 
-            if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
+            if (this.searchState() === "children")
             {
-                query = OneTeam.searchQuery(searchTerm, [
-                    "siteRouteName",
-                    "siteName"
-                ]);
-            }
-
-            if (!query)
-            {
-                query = {};
-            }
-            query._type = "type:journalsitefolder0";
-
-            pagination.paths = true;
-
-            var branch = self.observable("branch").get();
-
-            Chain(branch).queryNodes(query, pagination).each(function() {
-
-                if(pagination.sort["sortOrder"] != null) {
-                    if(this.siteParent!= "Journals") {
-                        if(!this.familySite || this.familySite === "N") {
-                            this.indent = true;
+                if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
+                {
+                    query = OneTeam.searchQuery(searchTerm, [
+                        "siteRouteName",
+                        "siteName"
+                    ]);
+                }
+    
+                if (!query)
+                {
+                    query = {};
+                }
+                query._type = "type:journalsitefolder0";
+    
+                pagination.paths = true;
+    
+                var branch = self.observable("branch").get();
+    
+                Chain(branch).queryNodes(query, pagination).each(function() {
+    
+                    if(pagination.sort["sortOrder"] != null) {
+                        if(this.siteParent!= "Journals") {
+                            if(!this.familySite || this.familySite === "N") {
+                                this.indent = true;
+                            }
+                            else {
+                                this.indent = false;
+                            }
                         }
                         else {
                             this.indent = false;
                         }
                     }
-                    else {
-                        this.indent = false;
-                    }
-                }
-            }).then(function () {
-                callback(this);
-            });
-
+                }).then(function () {
+                    callback(this);
+                });
+            }
+            else
+            {
+                this.base(context, model, searchTerm, query, pagination, callback);
+            }
         },
 
         iconUri: function(row, model, context)
