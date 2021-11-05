@@ -160,7 +160,12 @@ define(function(require, exports, module) {
                         {
                             result.rows.push(list[i][0]);
                         }
-                        callback(result);
+
+                        var branch = node.getBranch();
+                        var map = branch.getFactory().nodeMap(branch, {});
+                        map.handleResponse(result);
+
+                        callback(map);
                     });
                 });
             });
