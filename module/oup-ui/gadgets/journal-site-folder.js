@@ -28,13 +28,13 @@ define(function(require, exports, module) {
                 "key": "titleDescription",
                 "title": "Document"
                 }],
-                "loader": "remote",
+                "loader": "gitana",
                 "checkbox": true,
                 "actions": true
             });
         },
 
-        doRemoteQuery: function(context, model, searchTerm, query, pagination, callback)
+        doGitanaQuery: function(context, model, searchTerm, query, pagination, callback)
         {
             var self = this;
 
@@ -99,67 +99,67 @@ define(function(require, exports, module) {
             var documentLibraryList = [];
 
             self.base(context, model, searchTerm, query, pagination, function(queryResult) {
-                console.log("queried");
-                queryResult.rows.forEach(function(row) {
+                queryResult.each(function() {
 
-                    if(row.typeQName == "type:journalhomepage0")
+                    if(this.getTypeQName() == "type:journalhomepage0")
                     {
                         homePageList.push(this);
                     }
-                    if (row.typeQName == "type:secondarypagesfolder0")
+                    if (this.getTypeQName() == "type:secondarypagesfolder0")
                     {
                         secondaryPageList.push(this);
                     }
-                    if (row.typeQName == "type:containeritemsfolder0")
+                    if (this.getTypeQName() == "type:containeritemsfolder0")
                     {
                         containerItemsList.push(this);
                     }
-                    if (row.typeQName == "type:imagelibraryfolder0")
+                    if (this.getTypeQName() == "type:imagelibraryfolder0")
                     {
                         imageLibraryList.push(this);
                     }
-                    if (row.typeQName == "type:documentlibraryfolder0")
+                    if (this.getTypeQName() == "type:documentlibraryfolder0")
                     {
                         documentLibraryList.push(this);
                     }
+    
+                }).then(function() {
+                    var list =[];
+    
+                    var result = {
+                        "rows": []
+                    };
+    
+                    if(homePageList.length > 0)
+                    {
+                        list.push(homePageList);
+                    }
+    
+                    if(secondaryPageList.length > 0)
+                    {
+                        list.push(secondaryPageList);
+                    }
+    
+                    if(containerItemsList.length > 0)
+                    {
+                        list.push(containerItemsList);
+                    }
+    
+                    if(imageLibraryList.length > 0)
+                    {
+                        list.push(imageLibraryList);
+                    }
+    
+                    if(documentLibraryList.length > 0)
+                    {
+                        list.push(documentLibraryList);
+                    }
+    
+                    for( var i =0; i <list.length; i++)
+                    {
+                        result.rows.push(list[i][0]);
+                    }
+                    callback(result);
                 });
-
-                var list =[];
-
-                var result = {
-                    "rows": []
-                };
-
-                if(homePageList.length > 0)
-                {
-                    list.push(homePageList);
-                }
-
-                if(secondaryPageList.length > 0)
-                {
-                    list.push(secondaryPageList);
-                }
-
-                if(containerItemsList.length > 0)
-                {
-                    list.push(containerItemsList);
-                }
-
-                if(imageLibraryList.length > 0)
-                {
-                    list.push(imageLibraryList);
-                }
-
-                if(documentLibraryList.length > 0)
-                {
-                    list.push(documentLibraryList);
-                }
-
-                for( var i =0; i <list.length; i++)
-                {
-                    result.rows.push(list[i][0]);
-                }
-                callback(result);
             });
         },
 
