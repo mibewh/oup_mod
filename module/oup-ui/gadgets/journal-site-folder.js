@@ -98,30 +98,31 @@ define(function(require, exports, module) {
             var imageLibraryList = [];
             var documentLibraryList = [];
 
-            Chain(node).queryRelatives(query, config, pagination).each(function() {
+            self.base(context, model, searchTerm, query, pagination, function(queryResult) {
+                queryResult.rows.forEach(row => {
 
-                if(this.getTypeQName() == "type:journalhomepage0")
-                {
-                    homePageList.push(this);
-                }
-                if (this.getTypeQName() == "type:secondarypagesfolder0")
-                {
-                    secondaryPageList.push(this);
-                }
-                if (this.getTypeQName() == "type:containeritemsfolder0")
-                {
-                    containerItemsList.push(this);
-                }
-                if (this.getTypeQName() == "type:imagelibraryfolder0")
-                {
-                    imageLibraryList.push(this);
-                }
-                if (this.getTypeQName() == "type:documentlibraryfolder0")
-                {
-                    documentLibraryList.push(this);
-                }
+                    if(row.typeQName == "type:journalhomepage0")
+                    {
+                        homePageList.push(this);
+                    }
+                    if (row.typeQName == "type:secondarypagesfolder0")
+                    {
+                        secondaryPageList.push(this);
+                    }
+                    if (row.typeQName == "type:containeritemsfolder0")
+                    {
+                        containerItemsList.push(this);
+                    }
+                    if (row.typeQName == "type:imagelibraryfolder0")
+                    {
+                        imageLibraryList.push(this);
+                    }
+                    if (row.typeQName == "type:documentlibraryfolder0")
+                    {
+                        documentLibraryList.push(this);
+                    }
+                });
 
-            }).then(function() {
                 var list =[];
 
                 var result = {
@@ -159,7 +160,6 @@ define(function(require, exports, module) {
                 }
                 callback(result);
             });
-
         },
 
         columnValue: function(row, item, model, context)
