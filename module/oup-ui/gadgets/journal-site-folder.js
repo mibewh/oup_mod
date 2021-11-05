@@ -99,66 +99,69 @@ define(function(require, exports, module) {
             var documentLibraryList = [];
 
             self.base(context, model, searchTerm, query, pagination, function(queryResult) {
-                queryResult.each(function() {
+                Chain(queryResult).then(function() {
 
-                    if(this.getTypeQName() == "type:journalhomepage0")
-                    {
-                        homePageList.push(this);
-                    }
-                    if (this.getTypeQName() == "type:secondarypagesfolder0")
-                    {
-                        secondaryPageList.push(this);
-                    }
-                    if (this.getTypeQName() == "type:containeritemsfolder0")
-                    {
-                        containerItemsList.push(this);
-                    }
-                    if (this.getTypeQName() == "type:imagelibraryfolder0")
-                    {
-                        imageLibraryList.push(this);
-                    }
-                    if (this.getTypeQName() == "type:documentlibraryfolder0")
-                    {
-                        documentLibraryList.push(this);
-                    }
-    
-                }).then(function() {
-                    var list =[];
-    
-                    var result = {
-                        "rows": []
-                    };
-    
-                    if(homePageList.length > 0)
-                    {
-                        list.push(homePageList);
-                    }
-    
-                    if(secondaryPageList.length > 0)
-                    {
-                        list.push(secondaryPageList);
-                    }
-    
-                    if(containerItemsList.length > 0)
-                    {
-                        list.push(containerItemsList);
-                    }
-    
-                    if(imageLibraryList.length > 0)
-                    {
-                        list.push(imageLibraryList);
-                    }
-    
-                    if(documentLibraryList.length > 0)
-                    {
-                        list.push(documentLibraryList);
-                    }
-    
-                    for( var i =0; i <list.length; i++)
-                    {
-                        result.rows.push(list[i][0]);
-                    }
-                    callback(result);
+                    this.each(function() {
+
+                        if(this.getTypeQName() == "type:journalhomepage0")
+                        {
+                            homePageList.push(this);
+                        }
+                        if (this.getTypeQName() == "type:secondarypagesfolder0")
+                        {
+                            secondaryPageList.push(this);
+                        }
+                        if (this.getTypeQName() == "type:containeritemsfolder0")
+                        {
+                            containerItemsList.push(this);
+                        }
+                        if (this.getTypeQName() == "type:imagelibraryfolder0")
+                        {
+                            imageLibraryList.push(this);
+                        }
+                        if (this.getTypeQName() == "type:documentlibraryfolder0")
+                        {
+                            documentLibraryList.push(this);
+                        }
+        
+                    }).then(function() {
+                        var list =[];
+        
+                        var result = {
+                            "rows": []
+                        };
+        
+                        if(homePageList.length > 0)
+                        {
+                            list.push(homePageList);
+                        }
+        
+                        if(secondaryPageList.length > 0)
+                        {
+                            list.push(secondaryPageList);
+                        }
+        
+                        if(containerItemsList.length > 0)
+                        {
+                            list.push(containerItemsList);
+                        }
+        
+                        if(imageLibraryList.length > 0)
+                        {
+                            list.push(imageLibraryList);
+                        }
+        
+                        if(documentLibraryList.length > 0)
+                        {
+                            list.push(documentLibraryList);
+                        }
+        
+                        for( var i =0; i <list.length; i++)
+                        {
+                            result.rows.push(list[i][0]);
+                        }
+                        callback(result);
+                    });
                 });
             });
         },
