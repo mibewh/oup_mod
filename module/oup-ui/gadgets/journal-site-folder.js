@@ -99,7 +99,8 @@ define(function(require, exports, module) {
             var documentLibraryList = [];
 
             self.base(context, model, searchTerm, query, pagination, function(queryResult) {
-                queryResult.rows.forEach(row => {
+                console.log("queried");
+                queryResult.rows.forEach(function(row) {
 
                     if(row.typeQName == "type:journalhomepage0")
                     {
@@ -204,60 +205,7 @@ define(function(require, exports, module) {
 
         prepareModel: function(el, model, callback)
         {
-            var self = this;
-
-            this.base(el, model, function() {
-
-                // allow for some buttons to be filtered out using "remove"
-                var document = self.observable("document").get();
-                if (document) {
-                    var configuredButtons = OneTeam.configEvalArray(document, "documents-list-buttons", self, true);
-                    self.spliceRemovedButtons(model.buttons, configuredButtons);
-                }
-
-                // make sure this is loaded
-                OneTeam.project2ContentTypes(self, false, function(contentTypeEntries, definitionsMap) {
-
-                    model.definitions = {};
-                    for (var qname in definitionsMap) {
-                        model.definitions[qname] = definitionsMap[qname];
-                    }
-
-                    model.path = self.observable("path").get();
-
-                    OneTeam.projectNode(self, "root", model.path, function() {
-
-                        model.node = this;
-
-                        // adjust the "Rules" button (if it is there) so that it shows the # of rules wired to the folder
-                        // only if the # of rules > 0
-                        var stats = model.node.stats();
-                        if (stats)
-                        {
-                            var ruleCount = stats["a:has_behavior_OUTGOING"];
-                            if (ruleCount > 0)
-                            {
-                                for (var i = 0; i < model.buttons.length; i++)
-                                {
-                                    if (model.buttons[i].key === "view_rules")
-                                    {
-                                        model.buttons[i].title += " (" + ruleCount + ")";
-                                    }
-                                }
-                            }
-                        }
-
-                        TemplateHelperFactory.create(self, "documents-list", function(err, renderTemplate) {
-
-
-                            model.renderTemplate = renderTemplate;
-
-                            callback();
-                        });
-
-                    });
-                });
-            });
+            this.base(el, model, callback);
         }
     }));
 
