@@ -75,19 +75,18 @@ define(function(require, exports, module) {
         {
             var self = this;
 
-
-            if (this.searchState() === "children")
+            if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
             {
-                if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
-                {
-                    query = OneTeam.searchQuery(searchTerm, ["title"]);
-                }
-    
-                if (!query)
-                {
-                    query = {};
-                }
-                
+                query = OneTeam.searchQuery(searchTerm, ["title"]);
+            }
+
+            if (!query)
+            {
+                query = {};
+            }
+            
+            if (this.searchState() === "children")
+            {    
                 query._type = {"$in":["type:secondarypage0","type:genericform"]};
     
                 pagination.paths = true;

@@ -38,14 +38,13 @@ define(function(require, exports, module) {
         {
             var self = this;
 
+            if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
+            {
+                query = OneTeam.searchQuery(searchTerm, ["title", "description"]);
+            }
+
             if (this.searchState() === "children")
             {
-
-                if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
-                {
-                    query = OneTeam.searchQuery(searchTerm, ["title", "description"]);
-                }
-    
                 if (!query)
                 {
                     query = {};

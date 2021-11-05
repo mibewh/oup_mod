@@ -103,23 +103,25 @@ define(function(require, exports, module) {
         {
             var self = this;
 
+            if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
+            {
+                query = OneTeam.searchQuery(searchTerm, [
+                    "siteRouteName",
+                    "siteName"
+                ]);
+            }
+
+            if (!query)
+            {
+                query = {};
+            }
+
+            pagination.paths = true;
+
+            
             if (this.searchState() === "children")
             {
-                if (OneTeam.isEmptyOrNonExistent(query) && searchTerm)
-                {
-                    query = OneTeam.searchQuery(searchTerm, [
-                        "siteRouteName",
-                        "siteName"
-                    ]);
-                }
-    
-                if (!query)
-                {
-                    query = {};
-                }
                 query._type = "type:journalsitefolder0";
-    
-                pagination.paths = true;
     
                 var branch = self.observable("branch").get();
     
