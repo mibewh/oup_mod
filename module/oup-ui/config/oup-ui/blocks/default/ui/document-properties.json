@@ -3,6 +3,7 @@
   "config": {
     "document-properties": {
       "showTranslationPicker": false,
+      "showFormPicker": false,
       "lifeCycle": false
     }
   }
